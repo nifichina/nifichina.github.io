@@ -1117,7 +1117,7 @@ cn=NiFi-2，ou=people，dc=example，dc=com
 
 在UI中，从全局菜单中选择`Users`。这将打开一个用于创建和管理用户和租户的对话框。
 
-![](./image/general/NiFi-users-dialog.png)
+![](./image/general/nifi-users-dialog.png)
 
 单击`Add`图标(![添加用户图标](https://nifichina.gitee.io/image/general/iconAddUser.png))。要创建用户，请输入与为保护你的NiFi实例而选择的身份验证方法相关的`Identity`信息。单击确定。
 
