@@ -1429,7 +1429,7 @@ User1可以选择并更改现有连接(在GenerateFlowFile和LogAttribute之间)
 
 输入的前8或16个字节是salt。盐长度基于所选算法的密码块长度确定。如果无法确定密码块大小(例如使用流密码`RC4`)，则使用默认值8字节。在解密时，盐被读入并与密码组合以导出加密密钥和IV。
 
-![](./image/general/NiFi-legacy-salt.png)
+![](./image/general/nifi-legacy-salt.png)
 
 #### OpenSSL PKCS＃5 v1.5 EVP_BytesToKey
 
