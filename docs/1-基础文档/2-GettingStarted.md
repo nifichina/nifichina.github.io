@@ -58,27 +58,27 @@ NiFi可以从NiFi[官方页面下载](http://nifi.apache.org/download.html)。�
 
 打开用户界面,此时这是一个用于编排数据流程的空白画布：
 
-![](../image/general/new-flow.png)
+![](./image/general/new-flow.png)
 
 用户界面有多种工具可用于创建和管理我们的第一个数据流：
 
-![](../image/general/nifi-toolbar-components.png)
+![](./image/general/nifi-toolbar-components.png)
 
 全局菜单(global menu)包含以下选项：
 
-![](../image/general/global-menu.png)
+![](./image/general/global-menu.png)
 
 ### 添加处理器
 
-我们现在可以通过在画布中添加Processor来开始创建数据流处理流程。要执行此操作,请将处理器图标(![](../image/general/iconProcessor.png))从屏幕左上方拖动到画布中间,并将其放在那里。拖拽时NIFI将为我们提供一个对话框,允许我们选择要添加的处理器：
+我们现在可以通过在画布中添加Processor来开始创建数据流处理流程。要执行此操作,请将处理器图标(![](./image/general/iconProcessor.png))从屏幕左上方拖动到画布中间,并将其放在那里。拖拽时NIFI将为我们提供一个对话框,允许我们选择要添加的处理器：
 
-![](../image/general/add-processor.png)
+![](./image/general/add-processor.png)
 
 我们有很多可选组件。方便演示,这里假设我们的需求只是想将本地磁盘中的文件导入NiFi。当开发人员写处理器的时候,开发人员可以为该处理器分配"tags",这些tags就是关键字,我们可以通过在对话框右上角的过滤器框中输入关键字或处理器名称进行过滤。想要从本地磁盘中提取文件,在过滤框输入关键字,例如,输入关键字"file"将为我们筛选出一些处理文件的处理器。按"local"一词过滤也会很快缩小列表范围。从列表中选择处理器,我们将在对话框底部附近看到处理器的简要说明,这会告诉我们处理器的确切功能。**GetFile** Processor告诉我们它将数据从我们的本地磁盘拉入NiFi,然后删除本地文件。随后我们可以双击处理器类型或选择处理器并点击Add按钮,这样,处理器将被添加到画布中我们拖拽到的位置上。
 
 ### 配置处理器
 
-现在我们已经添加了GetFile处理器,我们可以通过右键单击Processor并选择Configure菜单项来配置它。弹出的对话框有许多配置项,可以到[用户指南](./UserGuide)详细了解,在本指南中,我们将重点关注"Properties"选项卡。选择Properties选项卡后,我们将获得一个可以为Processor作配置的列表。不同的组件属性也是不同的,粗体属性是必需属性。在配置完所有必需属性之后,才能够启动处理器。为GetFile配置的最重要的属性是文件的目录。比如我们将目录名是./data-in,这将导致处理器开始拉取中data-in目录下的所有数据。我们可以选择为此处理器配置多个不同的属性,如果不确定特定属性的作用,我们可以将鼠标悬停在问号图标![](../image/general/iconInfo.png)上,即属性名称旁边的帮助图标,以便阅读该属性的描述。此外,将鼠标悬停在![](../image/general/iconInfo.png)图标上时显示的工具提示将提供该属性的默认值（如果存在）,以及有关该属性是否支持表达式语言的信息（请参阅文档的[表达式语言/在Property值中使用attribute](#表达式语言-在Property值中使用attribute)）,以及之前为该属性配置的值。
+现在我们已经添加了GetFile处理器,我们可以通过右键单击Processor并选择Configure菜单项来配置它。弹出的对话框有许多配置项,可以到[用户指南](./UserGuide)详细了解,在本指南中,我们将重点关注"Properties"选项卡。选择Properties选项卡后,我们将获得一个可以为Processor作配置的列表。不同的组件属性也是不同的,粗体属性是必需属性。在配置完所有必需属性之后,才能够启动处理器。为GetFile配置的最重要的属性是文件的目录。比如我们将目录名是./data-in,这将导致处理器开始拉取中data-in目录下的所有数据。我们可以选择为此处理器配置多个不同的属性,如果不确定特定属性的作用,我们可以将鼠标悬停在问号图标![](./image/general/iconInfo.png)上,即属性名称旁边的帮助图标,以便阅读该属性的描述。此外,将鼠标悬停在![](./image/general/iconInfo.png)图标上时显示的工具提示将提供该属性的默认值（如果存在）,以及有关该属性是否支持表达式语言的信息（请参阅文档的[表达式语言/在Property值中使用attribute](#表达式语言-在Property值中使用attribute)）,以及之前为该属性配置的值。
 
 要使此属性有效,请在NIFI主目录中创建一个名为data-in的目录,然后单击确定按钮关闭对话框。
 
@@ -86,15 +86,15 @@ NiFi可以从NiFi[官方页面下载](http://nifi.apache.org/download.html)。�
 
 每个处理器都有一组定义好的"Relationships",数据将发送到这些关系中。处理器完成FlowFile的处理后,会将其传输到其中一个(或多个)关系。这允许用户根据处理的结果配置如何路由FlowFiles。例如,许多处理器定义了两个关系：success和failure。然后,如果处理器能够成功处理数据则可以将数据流传入success,如果处理器由于某种原因无法处理数据则可以将数据流传入failure。或者,可以简单地将两个关系路由到流中的相同路由（比如success和failure目的到相同的路由）。
 
-现在我们已经添加并配置了我们的GetFile处理器,并应用了配置,我们可以在处理器的左上角看到一个警告图标（![](../image/general/iconAlert.png)）,警告图标表示处理器未处于有效状态。将鼠标悬停在此图标上,我们可以看到该success关系尚未定义的警告信息,意思是我们没有告诉NiFi如何处理Processor转移到success关系的数据。
+现在我们已经添加并配置了我们的GetFile处理器,并应用了配置,我们可以在处理器的左上角看到一个警告图标（![](./image/general/iconAlert.png)）,警告图标表示处理器未处于有效状态。将鼠标悬停在此图标上,我们可以看到该success关系尚未定义的警告信息,意思是我们没有告诉NiFi如何处理Processor转移到success关系的数据。
 
 为了解决这个问题,让我们按照上面的相同步骤添加另一个可以连接GetFile的处理器。这一次,我们假设只需记录FlowFile存在的属性。为此,我们将添加一个LogAttributes处理器。
 
-我们现在可以将GetFile处理器的输出发送到LogAttribute。用鼠标悬停在GetFile处理器上,连接出现在处理器中间的图标![](../image/general/iconConnection.png)。我们可以将此图标从GetFile拖到LogAttribute。这时会弹出一个对话框,用于选择我们要为此连接包含哪些关系。由于GetFile只有一个关系success,因此会自动为我们选择关系。
+我们现在可以将GetFile处理器的输出发送到LogAttribute。用鼠标悬停在GetFile处理器上,连接出现在处理器中间的图标![](./image/general/iconConnection.png)。我们可以将此图标从GetFile拖到LogAttribute。这时会弹出一个对话框,用于选择我们要为此连接包含哪些关系。由于GetFile只有一个关系success,因此会自动为我们选择关系。
 
 单击连接的"Settings",选项卡提供了一些用于配置此连接的行为方式的选项：
 
-![](../image/general/connection-settings.png)
+![](./image/general/connection-settings.png)
 
 如果我们愿意,我们可以给Connection起一个名字。我们还可以设置数据的到期时间。默认情况下,它设置为"0秒",表示数据不应过期。但是,我们可以更改该值,以便当此Connection中的数据达到特定期限时,它将自动删除FlowFile（并将创建相应的EXPIRE Provenance事件,后面会有介绍）。
 
@@ -102,7 +102,7 @@ NiFi可以从NiFi[官方页面下载](http://nifi.apache.org/download.html)。�
 
 最后,我们在右侧可配置优先级。这允许我们控制如何排序此队列中的数据。我们可以将优先级从"Available prioritizers"列表拖到"Selected prioritizers"列表中,以激活优先级排序器。如果激活了多个优先级排序器,则会将对它们进行评估,首先评估先列出的优先级排序器,如果根据该优先级排序器确定两个FlowFiles相等,则将使用第二个优先级排序器,以此类推。
 
-为了便于讨论,我们只需单击Add将Connection添加到画布中即可。我们现在应该看到Alert图标已更改为Stopped图标![](../image/general/iconStop.png)。但是,LogAttribute现在显示无效,因为它的success关系尚未连接到任何下游组件。我们将LogAttribute 的success配置成Auto Terminated(当FlowFile在LogAttribute中处理完成后,会产出drop事件),单击OK将关闭对话框,界面 显示两个处理器是停止状态。
+为了便于讨论,我们只需单击Add将Connection添加到画布中即可。我们现在应该看到Alert图标已更改为Stopped图标![](./image/general/iconStop.png)。但是,LogAttribute现在显示无效,因为它的success关系尚未连接到任何下游组件。我们将LogAttribute 的success配置成Auto Terminated(当FlowFile在LogAttribute中处理完成后,会产出drop事件),单击OK将关闭对话框,界面 显示两个处理器是停止状态。
 
 
 ### 启动和停止处理器
@@ -337,7 +337,7 @@ NiFi最强大的功能之一是能够根据属性路由FlowFiles。执行此操�
 
 ### 表达式语言/在Property值中使用attribute
 
-当我们从FlowFiles的内容中提取属性并添加用户定义的属性时,除非我们有一些可以使用它们的机制,否则它们不会作为运算符进行计算。NiFi表达式语言允许我们在配置流时访问和操作FlowFile属性值。并非所有处理器属性都允许使用表达式语言,但很多处理器都可以。为了确定属性是否支持表达式语言,用户可以将鼠标悬停在处理器配置对话框的属性选项卡中的![](../image/general/iconInfo.png)图标上,然后会有一个提示,显示属性的描述,默认值（如果有）以及属性是否支持表达式语言。
+当我们从FlowFiles的内容中提取属性并添加用户定义的属性时,除非我们有一些可以使用它们的机制,否则它们不会作为运算符进行计算。NiFi表达式语言允许我们在配置流时访问和操作FlowFile属性值。并非所有处理器属性都允许使用表达式语言,但很多处理器都可以。为了确定属性是否支持表达式语言,用户可以将鼠标悬停在处理器配置对话框的属性选项卡中的![](./image/general/iconInfo.png)图标上,然后会有一个提示,显示属性的描述,默认值（如果有）以及属性是否支持表达式语言。
 
 对于支持表达式语言的属性,可以通过在 开始标记 ${ 和结束标记 } 中添加表达式来使用它。表达式可以像属性名一样简单。例如,要引用uuid Attribute,我们可以简单地使用 ${uuid}。如果属性名称以字母以外的任何字符开头,或者包含除数字,字母,句号（.）或下划线（_）以外的字符,则需要加引号。例如,${My Attribute Name} 将无效,但${'My Attribute Name'}将引用属性My Attribute Name。
 
@@ -359,17 +359,17 @@ NiFi最强大的功能之一是能够根据属性路由FlowFiles。执行此操�
 
 - 选择要包含在模板中的组件。我们可以通过单击第一个组件,然后按住Shift键同时选择其他组件（以包括这些组件之间的连接）,或者在画布上拖动所需组件周围的框时按住Shift键选择多个组件。
 
-- 从操作面板中选择![](../image/general/iconNewTemplate.png)图标。
+- 从操作面板中选择![](./image/general/iconNewTemplate.png)图标。
 
 - 提供模板的名称和描述。
 
 - 单击Create按钮。
 
-一旦我们创建了一个模板,我们就可以将它用作流程中的构建块,就像处理器一样。单击并将模板图标![](../image/general/iconTemplate.png)从组件工具栏拖动到我们的画布上。然后,我们可以选择要添加到画布的模板,然后单击Add按钮。
+一旦我们创建了一个模板,我们就可以将它用作流程中的构建块,就像处理器一样。单击并将模板图标![](./image/general/iconTemplate.png)从组件工具栏拖动到我们的画布上。然后,我们可以选择要添加到画布的模板,然后单击Add按钮。
 
 最后,我们可以使用模板管理(Template Management )对话框来管理模板。要访问此对话框,请从全局菜单( Global Menu)中选择模板。在这里,我们可以看到存在哪些模板并设置过滤条件以找到感兴趣的模板。在表的右侧是一个图标,用于将模板导出或下载为XML文件。然后可以将其提供给其他人,以便他们可以复用模板。
 
-要将模板导入NiFi实例,请上传模板 从操作选项板中选择上载模板![](../image/general/iconUploadTemplate.png),单击搜索图标并选择本地计算机上的文件。然后单击Upload按钮。模板将显示在您的表格中,您可以将其拖动到画布上,就像您创建的任何其他模板一样。
+要将模板导入NiFi实例,请上传模板 从操作选项板中选择上载模板![](./image/general/iconUploadTemplate.png),单击搜索图标并选择本地计算机上的文件。然后单击Upload按钮。模板将显示在您的表格中,您可以将其拖动到画布上,就像您创建的任何其他模板一样。
 
 使用模板时需要记住一些重要注意事项：
 
@@ -407,21 +407,21 @@ NiFi最强大的功能之一是能够根据属性路由FlowFiles。执行此操�
 
 NiFi对其摄取的每个数据保持非常精细的细节。当数据通过系统处理并被转换,路由,拆分,聚合和分发到其他端点时,这些信息都存储在NiFi的Provenance Repository中。为了搜索和查看此信息,我们可以从全局菜单中选择数据源(Data Provenance)。会弹出一个表格,列出我们搜索过的Provenance事件：
 
-![](../image/general/provenance-table.png)
+![](./image/general/provenance-table.png)
 
 此表列出了最近发生的1,000个Provenance事件（尽管事件发生后可能需要几秒钟才能处理信息）。在此对话框中,有一个Search按钮,允许用户搜索特定处理器发生的事件,按文件名或UUID或其他几个字段搜索特定的FlowFile。在nifi.properties文件中提供了配置这些属性中的哪些属性可编入索引或可作搜索条件的功能。此外,配置文件还允许您指定将被索引的FlowFile属性。因此,您可以指定哪些属性对您的特定数据流很重要,并使这些属性可搜索。
 
 ### 事件详情
 
-一旦我们执行了搜索,我们的表格将仅展示与搜索条件匹配的事件。在这里,我们可以选择细节图标![](../image/general/iconDetails.png)来查看该事件的详细信息：
+一旦我们执行了搜索,我们的表格将仅展示与搜索条件匹配的事件。在这里,我们可以选择细节图标![](./image/general/iconDetails.png)来查看该事件的详细信息：
 
-![](../image/general/event-details.png)
+![](./image/general/event-details.png)
 
 在这里,我们可以确切地看到该事件发生的时间,事件影响的FlowFile,事件执行的组件（处理器等）,事件花费的时间以及事件发生时NiFi数据的总体时间（总潜伏期）。
 
 下一个选项卡提供事件发生时FlowFile上存在的所有属性的列表：
 
-![](../image/general/event-attributes.png)
+![](./image/general/event-attributes.png)
 
 在这里,我们可以看到事件发生时FlowFile上存在的所有属性,以及这些属性的先前值。我们可以知道哪些属性因此事件而发生变化以及它们如何变化。此外,在右侧角是一个复选框,允许用户仅查看那些已更改的属性。如果FlowFile只有少量属性,这可能不是特别有用,但当FlowFile有数百个属性时,它可能非常有用。
 
@@ -429,7 +429,7 @@ NiFi对其摄取的每个数据保持非常精细的细节。当数据通过系�
 
 最后,还有Content选项卡：
 
-![](../image/general/event-content.png)
+![](./image/general/event-content.png)
 
 此选项卡向我们提供有关存储FlowFile content的内容存储库位置的信息。如果事件修改了FlowFile的内容,我们将看到'input claim和'outputclaim'。如果数据格式是NiFi了可以识别的可以呈现的数据格式,我们可以选择下载或查看NiFi内部的内容。
 
@@ -437,11 +437,11 @@ NiFi对其摄取的每个数据保持非常精细的细节。当数据通过系�
 
 ### 谱系图
 
-除了查看Provenance事件的详细信息之外,我们还可以通过单击视图中的Lineage图标![](../image/general/iconLineage.png)来查看所涉及的FlowFile的血缘关系。
+除了查看Provenance事件的详细信息之外,我们还可以通过单击视图中的Lineage图标![](./image/general/iconLineage.png)来查看所涉及的FlowFile的血缘关系。
 
 这为我们提供了一个图形表示,说明了在遍历系统时该数据发生了什么：
 
-![](../image/general/lineage-graph-annotated.png)
+![](./image/general/lineage-graph-annotated.png)
 
 在这里,我们可以右键单击任何事件,然后单击View Details菜单项以查看[事件详细信息](#事件详情)。此图形表示向我们准确显示了数据发生的事件。有一些"特殊"事件类型需要注意。如果我们看到JOIN,FORK或CLONE事件,我们可以右键单击并选择Find Parents或Expand。这允许我们查看父FlowFiles和创建的子FlowFiles的血缘关系。
 

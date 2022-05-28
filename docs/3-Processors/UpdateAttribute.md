@@ -74,38 +74,33 @@ LOCAL | 提供一个选项，不仅将值存储在流文件中，还将值存储
 
 1：基本用法增加一个属性
 
-![](../image/processors/UpdateAttribute/config.png)
+![](./image/processors/UpdateAttribute/config.png)
 
 结果输出：
 
-![](../image/processors/UpdateAttribute/result.png)
+![](./image/processors/UpdateAttribute/result.png)
 
 2：高级用法，添加规则条件，符合条件时update指定的属性值
 
 点击ADVANCED
 
-![](../image/processors/UpdateAttribute/gaoji.png)
+![](./image/processors/UpdateAttribute/gaoji.png)
 
 添加一个rule,如果id的值等于11，就修改id的值为22
 
-![](../image/processors/UpdateAttribute/rule.png)
+![](./image/processors/UpdateAttribute/rule.png)
 
 结果输出：
 
-![](../image/processors/UpdateAttribute/result2.png)
+![](./image/processors/UpdateAttribute/result2.png)
 
 3：高级用法 存储状态,记录通过该处理器的数据流总和
 
-![](../image/processors/UpdateAttribute/config3.png)
+![](./image/processors/UpdateAttribute/config3.png)
 
 结果输出：
 
-![](../image/processors/UpdateAttribute/result3.png)
+![](./image/processors/UpdateAttribute/result3.png)
 
-![](../image/processors/UpdateAttribute/result4.png)
+![](./image/processors/UpdateAttribute/result4.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

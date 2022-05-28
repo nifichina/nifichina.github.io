@@ -59,16 +59,11 @@
 
 使用默认配置：
 
-![](../image/processors/FlattenJson/config.png)
+![](./image/processors/FlattenJson/config.png)
 
 输入json：
-![](../image/processors/FlattenJson/input.png)
-![](../image/processors/FlattenJson/dataflow.png)
+![](./image/processors/FlattenJson/input.png)
+![](./image/processors/FlattenJson/dataflow.png)
 输出json：
-![](../image/processors/FlattenJson/result.png)
+![](./image/processors/FlattenJson/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

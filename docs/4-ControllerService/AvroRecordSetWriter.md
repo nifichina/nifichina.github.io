@@ -72,8 +72,3 @@
    这个也非常简单，手动指定一个schema。你可以直接在`Schema Text`的value里编辑schema文本，也可以在流文件属性或者变量注册表指定一个叫avro.schema的schema文本。当然，avro.schema是人为定义的，可修改。
    
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

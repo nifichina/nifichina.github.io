@@ -72,14 +72,9 @@ Name     | Description
 
 1：比如进行一次Http请求，请求返回的数据中有字符串   "success":true 表名此次请求成功
 
-![](../image/processors/RouteOnContent/input.png)
+![](./image/processors/RouteOnContent/input.png)
 
-![](../image/processors/RouteOnContent/config.png)
+![](./image/processors/RouteOnContent/config.png)
 
-![](../image/processors/RouteOnContent/dataflow.png)
+![](./image/processors/RouteOnContent/dataflow.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

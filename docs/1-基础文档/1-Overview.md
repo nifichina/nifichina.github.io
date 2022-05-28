@@ -70,7 +70,7 @@ NiFi的基本设计概念与基于流程的编程[fbp](#fbp)的主要思想密�
 
 ## NiFi架构
 
-![](../image/general/zero-master-node.png)
+![](./image/general/zero-master-node.png)
 
 NiFi在操作系统上的JVM内执行。JVM上NiFi的主要组件如下：
 
@@ -100,7 +100,7 @@ NiFi在操作系统上的JVM内执行。JVM上NiFi的主要组件如下：
 
 NiFi也能够在集群内运行。
 
-![](../image/general/zero-master-cluster.png)
+![](./image/general/zero-master-cluster.png)
 
 从NiFi 1.0版本开始，NIFI集群采用了Zero-Master Clustering模式。NiFi群集中的每个节点对数据执行相同的任务，但每个节点都在不同的数据集上运行。Apache ZooKeeper选择单个节点作为集群协调器，ZooKeeper自动处理故障转移。所有集群节点都会向集群协调器发送心跳报告和状态信息。集群协调器负责断开和连接节点。此外，每个集群都有一个主节点，主节点也是由ZooKeeper选举产生。我们可以通过任何节点的用户界面（UI）与NiFi群集进行交互，并且我们所做的任何更改都将复制到集群中的所有节点上。
 

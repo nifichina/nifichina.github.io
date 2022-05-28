@@ -66,33 +66,28 @@
 
 1:下面是该处理器应用最多的情况，如下图为一json数组
 
-![](../image/processors/splitjson/json.png)
+![](./image/processors/splitjson/json.png)
 
 在SplitJson中配置JsonPath为  $.* (匹配数组任意元素)
 
-![](../image/processors/splitjson/splitconfig.png)
+![](./image/processors/splitjson/splitconfig.png)
 
 split关系中输出3个分割文件，original关系中输出被分割原文件。
 
-![](../image/processors/splitjson/splitresult.png)
+![](./image/processors/splitjson/splitresult.png)
 
-![](../image/processors/splitjson/splitresult1.png)
+![](./image/processors/splitjson/splitresult1.png)
 
 2：举例说明该处理器的复杂使用，如下图为一多层次结构json数组，需要分割取出json数组中的father字段。
 
-![](../image/processors/splitjson/json2.png)
+![](./image/processors/splitjson/json2.png)
 
 配置JsonPath为$.*.family.father
 
-![](../image/processors/splitjson/splitconfig2.png)
+![](./image/processors/splitjson/splitconfig2.png)
 
 结果：
 
-![](../image/processors/splitjson/splitresult2.png)
+![](./image/processors/splitjson/splitresult2.png)
 
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

@@ -72,38 +72,33 @@
 
 Fail when no attributes present 设置为true，来源流文件中只包含一个secureKey属性，而该处理器配置test1属性进行MD5加密
 
-![](../image/processors/CryptographicHashAttribute/config.png)
+![](./image/processors/CryptographicHashAttribute/config.png)
 
 当流文件到达该处理器，处理器匹配不到任何属性(示例中为匹配不到test1属性)，虽然选择Allow missing attributes，但还是路由到failure。
 
-![](../image/processors/CryptographicHashAttribute/result.png)
+![](./image/processors/CryptographicHashAttribute/result.png)
 
 2：案例1中将Fail when no attributes present 设置为false，其他不变。
 
-![](../image/processors/CryptographicHashAttribute/config2.png)
+![](./image/processors/CryptographicHashAttribute/config2.png)
 
 同样的这次也没有匹配到任何属性，但路由到success；
 
-![](../image/processors/CryptographicHashAttribute/result2.png)
+![](./image/processors/CryptographicHashAttribute/result2.png)
 
 3：Allow missing attributes 
 
 Fail when no attributes present 设置为true，来源流文件中只包含了一个secureKey属性，而该处理器配置secureKey属性进行MD5加密
 
-![](../image/processors/CryptographicHashAttribute/config3.png)
+![](./image/processors/CryptographicHashAttribute/config3.png)
 
 来源流文件属性：
 
-![](../image/processors/CryptographicHashAttribute/attribute.png)
+![](./image/processors/CryptographicHashAttribute/attribute.png)
 
 输出流文件属性：
 
-![](../image/processors/CryptographicHashAttribute/output.png)
+![](./image/processors/CryptographicHashAttribute/output.png)
 
-![](../image/processors/CryptographicHashAttribute/output2.png)
+![](./image/processors/CryptographicHashAttribute/output2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

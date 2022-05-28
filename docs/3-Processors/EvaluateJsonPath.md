@@ -70,26 +70,21 @@
 
 1：提取流文件json内容，作为输出流的属性。（注意：当输出选择flowfile-attribute时，及时jsonpath匹配不到值，流文件也会路由到matched）
 
-![](../image/processors/EvaluateJsonPath/config.png)
+![](./image/processors/EvaluateJsonPath/config.png)
 
 输入json如下：
 
-![](../image/processors/EvaluateJsonPath/input.png)
+![](./image/processors/EvaluateJsonPath/input.png)
 
 输出结果如下：
 
-![](../image/processors/EvaluateJsonPath/result.png)
+![](./image/processors/EvaluateJsonPath/result.png)
 
 2：提取流文件json内容，作为输出流的内容。（注意：当选择flowfile-content时，用户只能自定义添加一个属性；如果jsonPath匹配不到，会路由到unmatched）
 
-![](../image/processors/EvaluateJsonPath/config2.png)
+![](./image/processors/EvaluateJsonPath/config2.png)
 
 输出流内容：
 
-![](../image/processors/EvaluateJsonPath/result2.png)
+![](./image/processors/EvaluateJsonPath/result2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

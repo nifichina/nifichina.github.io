@@ -66,26 +66,21 @@
 
 1：如图为GenerateFlowFile生成的流文件，AttributesToCSV配置csv输出到流属性中，csv包含核心属性 ，包含schema
 
-![](../image/processors/AttributesToCSV/core.png)
+![](./image/processors/AttributesToCSV/core.png)
 
 配置如下：
 
-![](../image/processors/AttributesToCSV/config.png)
+![](./image/processors/AttributesToCSV/config.png)
 
 结果为(AttributesToCSV的数据流属性)：
 
-![](../image/processors/AttributesToCSV/result.png)
+![](./image/processors/AttributesToCSV/result.png)
 
 2：例子1中同样的配置，但输出到输出流的content中
 
-![](../image/processors/AttributesToCSV/config2.png)
+![](./image/processors/AttributesToCSV/config2.png)
 
 结果为
 
-![](../image/processors/AttributesToCSV/result2.png)
+![](./image/processors/AttributesToCSV/result2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

@@ -64,8 +64,3 @@ failure | 当无法访问缓存时，或者如果Release Signal Identifier计算
 
 没有指定。
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

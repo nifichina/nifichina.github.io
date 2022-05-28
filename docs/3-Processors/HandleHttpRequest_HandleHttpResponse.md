@@ -161,22 +161,18 @@ HandleHttpRequest与HandleHttpResponse一起使用，两个处理器之间可能
 
 HandleHttpRequest，配置9999端口，Allowed paths中配置/latest（如果不配置，访问则直接IP:端口），如下：
 
-![](../image/processors/HandleHttpRequest_HandleHttpResponse/config.png)
+![](./image/processors/HandleHttpRequest_HandleHttpResponse/config.png)
 
 HandleHttpResponse配置如下：
 
-![](../image/processors/HandleHttpRequest_HandleHttpResponse/config2.png)
+![](./image/processors/HandleHttpRequest_HandleHttpResponse/config2.png)
 
  流程入下：
 
- ![](../image/processors/HandleHttpRequest_HandleHttpResponse/dataflow.png)
+ ![](./image/processors/HandleHttpRequest_HandleHttpResponse/dataflow.png)
  
 使用POSTMAN工具模拟执行post请求：
 
- ![](../image/processors/HandleHttpRequest_HandleHttpResponse/result.png)
+ ![](./image/processors/HandleHttpRequest_HandleHttpResponse/result.png)
 
- ## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)
+ 

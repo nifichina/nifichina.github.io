@@ -74,18 +74,13 @@
 
 配置3个relationship，再分别配置不同的权重。
 
-![](../image/processors/DistributeLoad/config.png)
+![](./image/processors/DistributeLoad/config.png)
 
 测试中使得数据分配前队列中有6个flowfile
 
-![](../image/processors/DistributeLoad/dataflow.png)
+![](./image/processors/DistributeLoad/dataflow.png)
 
 结果：
 
-![](../image/processors/DistributeLoad/result.png)
+![](./image/processors/DistributeLoad/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

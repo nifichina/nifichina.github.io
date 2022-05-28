@@ -4,4 +4,4 @@
 
 关注公众号 得到第一手文章/文档更新推送。
 
-![](../image/wechat.jpg)
+![](./wechat.jpg)

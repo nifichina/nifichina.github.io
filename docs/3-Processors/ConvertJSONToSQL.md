@@ -76,8 +76,3 @@
 3. `Update Keys`是当`Statement Type`为Update的时候使用，指定唯一键，如果没有指定，会默认使用表的主键，但此时如果表的主键不存在，并且`Unmatched Column Behavior`设置为`Fail on Unmatched Columns`，则到SQL的转换将失败。如果语句类型为INSERT，则忽略此属性。
 4. 可能让我们比较迷茫的是`Unmatched Field Behavior`和`Unmatched Column Behavior`，我们如果纠结这两个配置的描述就会很难受，我们只关注两个单词'Field'和'Column'就可以分清楚了。'Column'我们知道，(目标)表的列嘛，就是说如果你手里的数据中的列没有与我目标表的column对应会怎么样。而'Field'针对的是Record，是具体的数据，就是说如果你目标表里列没有与我Record中的Field相对应会怎么样。具体的关系我描述一下：首先Record中会携带schema元数据信息(或推断出schema信息)，信息里会有若干个Field。我们在生成SQL的时候，会从目标数据库查询指定表的元数据信息(放缓存里)，而数据库里设置成非null的且非自增长的没有设置默认值的则认为是required字段。然后针对insert、delete大体有三个步骤，第一步是遍历required字段，看record里是否都有这几个字段，如果没有就用到`Unmatched Column Behavior`，如果我们配置了'ignore'了，就继续执行。第二步是对这几个Field的遍历 -> 查询是否在指定表的元数据里有对应的列信息，当遇到没有的情况时,就是`Unmatched Field Behavior`，如果我们配置了'ignore'了，就继续执行。如果存在，我们就放到一个集合set里存起来。第二步遍历结束后，第三步我们再判断这个集合set有没有值，如果是空的，就直接报`"None of the fields in the record map to the columns defined by the " + tableName + " table"`SQLDataException异常了。update的话稍微有些不一样，第一步就检测`Update Keys`，如果没有对应值就默认使用目标表的主键，如果都没有值就报`"Table '" + tableName + "' does not have a Primary Key and no Update Keys were specified"`异常了，然后紧接着检测record里是否有这些字段，没有就要`Unmatched Column Behavior`。第二步跟上面一样，就是对这几个Field的遍历 -> 查询是否在指定表的元数据里有对应的列信息，当遇到没有的情况时,就是`Unmatched Field Behavior`，如果我们配置了'ignore'了，就继续执行。最后upset的检查就是融合了insert和update。
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

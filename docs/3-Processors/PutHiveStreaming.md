@@ -87,7 +87,7 @@ hive表只能是ORC格式；
 
 详情请查看hive  streaming 官方文档（https://cwiki.apache.org/confluence/display/Hive/Streaming+Data+Ingest）
 
-![](../image/processors/PutHiveStreaming/hive.png)
+![](./image/processors/PutHiveStreaming/hive.png)
 
 ```sql
 CREATE TABLE demo_hive(id int,name string,day_time string)
@@ -95,28 +95,23 @@ CLUSTERED BY (name) INTO 5 BUCKETS
 STORED AS ORC
 TBLPROPERTIES('transactional'='true');
 ```
-![](../image/processors/PutHiveStreaming/hive2.png)
+![](./image/processors/PutHiveStreaming/hive2.png)
 
 来源 库数据：
 
-![](../image/processors/PutHiveStreaming/input.png)
+![](./image/processors/PutHiveStreaming/input.png)
 
 配置如下：hive的thrift要查看配置 hive-site.xml
 
-![](../image/processors/PutHiveStreaming/config.png)
+![](./image/processors/PutHiveStreaming/config.png)
 
-![](../image/processors/PutHiveStreaming/dataflow.png)
+![](./image/processors/PutHiveStreaming/dataflow.png)
 
 输出结果:
 
-![](../image/processors/PutHiveStreaming/result.png)
+![](./image/processors/PutHiveStreaming/result.png)
 
 2: HDP NIFI 1.5 - HDP hive 1.2.1   
 
-![](../image/processors/PutHiveStreaming/dataflow2.png)
+![](./image/processors/PutHiveStreaming/dataflow2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

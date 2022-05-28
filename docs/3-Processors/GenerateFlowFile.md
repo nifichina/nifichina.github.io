@@ -69,16 +69,11 @@
 
 1：该处理器生成流文件固只能作为所设计流程的第一个处理器，不允许作为其他处理器传入连接关系。
 
-![](../image/processors/GenerateFlowFile/dataflow.png)
+![](./image/processors/GenerateFlowFile/dataflow.png)
 
 2：设置批量输出流文件，设置数据格式为Text，并且在Custom Text使用了随机数表达式。
 
-![](../image/processors/GenerateFlowFile/config.png)
+![](./image/processors/GenerateFlowFile/config.png)
 
 此时每次输出10个流文件，表达式${random():mod(10):plus(1)}只执行一次，10个流文件中的文本内容是相同的。
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

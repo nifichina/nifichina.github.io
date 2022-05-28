@@ -81,22 +81,17 @@
 
 1：将流内容（文本）输出到流属性当中 
 
-![](../image/processors/ExtractText/dataflow.png)
+![](./image/processors/ExtractText/dataflow.png)
 
 GenerateFlow  中手动设置一些text
 
-![](../image/processors/ExtractText/input.png)
+![](./image/processors/ExtractText/input.png)
 
 最后ExactText  其他属性默认，添加一个tablename属性：
 
-![](../image/processors/ExtractText/config.png)
+![](./image/processors/ExtractText/config.png)
 
 最后结果在attribute加上了我们想要的值
 
-![](../image/processors/ExtractText/result.png)
+![](./image/processors/ExtractText/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

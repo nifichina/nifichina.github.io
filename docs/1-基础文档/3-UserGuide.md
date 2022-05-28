@@ -77,7 +77,7 @@ NiFi UI提供了创建自动DataFlow以及可视化,编辑,监视和管理这些
 
 当DFM首次导航到UI时,会提供一个空白画布,可在其上构建数据流：
 
-![](../image/general/nifi-toolbar-components.png)
+![](./image/general/nifi-toolbar-components.png)
 
 组件工具栏跨越屏幕的左上角。它包含可以拖动到画布上以构建DataFlow的组件。在构建DataFlow中更详细地描述了每个组件。
 
@@ -87,11 +87,11 @@ NiFi UI提供了创建自动DataFlow以及可视化,编辑,监视和管理这些
 
 在画布的右侧是搜索和全局菜单。您可以使用 Search 轻松查找画布上的组件,并按组件名称,类型,标识符,配置属性及其值进行搜索。全局菜单：
 
-![](../image/general/global-menu.png)
+![](./image/general/global-menu.png)
 
 此外,UI还具有一些功能,可让您轻松浏览画布。您可以使用Navigate Palette(画布左上角,操作面板上面)在画布上平移,以及放大和缩小。数据流的Birds Eye View提供了DataFlow的高级视图,并允许您平移大部分DataFlow。您还可以在屏幕底部找到面包屑(画布底部)。当您导航进出流程组时,面包屑会显示当前流程中的深度,以及其中的每个流程组。面包屑中列出的每个进程组都是一个链接,点击可以返回相应进程组。
 
-![](../image/general/nifi-navigation.png)
+![](./image/general/nifi-navigation.png)
 
 ## 使用多租户授权访问UI
 
@@ -140,7 +140,7 @@ NiFi UI提供了创建自动DataFlow以及可视化,编辑,监视和管理这些
 
 如果NiFi未配置为支持匿名访问且用户使用其用户名/密码登录,则会立即将其发送到绕过画布的登录表单。
 
-![](../image/general/login.png)
+![](./image/general/login.png)
 
 ## 构建DataFlow
 
@@ -150,35 +150,35 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 上面的[用户界面](#NiFi用户界面)部分概述了UI的不同部分,本节将查看该组件工具栏中的每个组件：
 
-![](../image/general/components.png)
+![](./image/general/components.png)
 
-![](../image/general/iconProcessor.png)处理器(Processor)：处理器是最常用的组件,因为它负责数据的流入,流出,路由和操作。有许多不同类型的处理器。实际上,这是NiFi中非常常见的扩展点,这意味着许多供应商可能会实现自己的处理器来执行其所需的任何功能。将处理器拖动到画布上时,会向用户显示一个对话框,以选择要使用的处理器类型：
+![](./image/general/iconProcessor.png)处理器(Processor)：处理器是最常用的组件,因为它负责数据的流入,流出,路由和操作。有许多不同类型的处理器。实际上,这是NiFi中非常常见的扩展点,这意味着许多供应商可能会实现自己的处理器来执行其所需的任何功能。将处理器拖动到画布上时,会向用户显示一个对话框,以选择要使用的处理器类型：
 
-![](../image/general/add-processor.png)
+![](./image/general/add-processor.png)
 
 在右上角,用户可以根据处理器类型或与处理器关联的标签过滤列表。处理器开发人员能够将标签添加到其处理器中。这些标签在此对话框中用于过滤,并显示在标签云的左侧。使用特定标记存在的处理器越多,标记在标记云中显示的越大。单击云中的标记会将可用的处理器过滤为仅包含该标记的处理器。如果选择了多个标记,则仅显示包含所有这些标记的处理器。例如,如果我们只想显示那些允许我们提取文件的处理器,我们可以同时选择files 和ingest 标签：
 
-![](../image/general/add-processor-with-tag-cloud.png)
+![](./image/general/add-processor-with-tag-cloud.png)
 
-受限制的组件将在其名称旁边标有红色的盾牌图标![](../image/general/restricted.png)。这些组件可用于执行用户通过 NiFi REST API / UI 提供的代码,或者可用于使用NiFi OS凭据获取或更改NiFi主机(或其他非NIFI主机)系统上的数据(举例 ExecuteGroovyScript 执行脚本,FetchHDFS 读取文件(读权限或写权限))。这些组件可以由其他授权的NiFi用户使用,以超出应用程序的预期用途、升级特权,或者公开关于NiFi进程或主机系统内部的数据。
+受限制的组件将在其名称旁边标有红色的盾牌图标![](./image/general/restricted.png)。这些组件可用于执行用户通过 NiFi REST API / UI 提供的代码,或者可用于使用NiFi OS凭据获取或更改NiFi主机(或其他非NIFI主机)系统上的数据(举例 ExecuteGroovyScript 执行脚本,FetchHDFS 读取文件(读权限或写权限))。这些组件可以由其他授权的NiFi用户使用,以超出应用程序的预期用途、升级特权,或者公开关于NiFi进程或主机系统内部的数据。
 
-所有这些功能都应被视为特权,系统管理员应了解这些功能,并明确地为受信任用户授权。在允许用户创建和修改受限制的组件之前,必须授予他们访问权限。将鼠标悬停在受限图标![](../image/general/restricted.png)上将显示受限组件所需的特定权限。无论限制如何,都可以分配权限。在这种情况下,用户可以访问所有受限制的组件。或者,可以为用户分配对特定限制的访问权限。如果用户已被授予对组件所需的所有限制的访问权限,则他们将具有对该组件的访问权限,否则将需要获得足够的权限。
+所有这些功能都应被视为特权,系统管理员应了解这些功能,并明确地为受信任用户授权。在允许用户创建和修改受限制的组件之前,必须授予他们访问权限。将鼠标悬停在受限图标![](./image/general/restricted.png)上将显示受限组件所需的特定权限。无论限制如何,都可以分配权限。在这种情况下,用户可以访问所有受限制的组件。或者,可以为用户分配对特定限制的访问权限。如果用户已被授予对组件所需的所有限制的访问权限,则他们将具有对该组件的访问权限,否则将需要获得足够的权限。
 
 有关更多信息,请参阅[使用多租户授权访问UI](#使用多租户授权访问UI)和[版本化流程中受限制的组件](#版本化流程中受限制的组件)。
 
 单击Add按钮或双击处理器类型将选定的处理器添加到画布中。
 
-![](../image/general/i.png)：对于添加到画布的任何组件,可以使用鼠标选择它并将其移动到画布上的任何位置。此外,可以通过按住Shift键并选择每个项目或按住Shift键并在所需组件周围拖动选择框,一次选择多个项目。
+![](./image/general/i.png)：对于添加到画布的任何组件,可以使用鼠标选择它并将其移动到画布上的任何位置。此外,可以通过按住Shift键并选择每个项目或按住Shift键并在所需组件周围拖动选择框,一次选择多个项目。
 
 将处理器拖到画布上后,可以通过右键单击处理器并从上下文菜单中选择一个选项来与其进行交互。根据分配给您的权限,上下文菜单中可用的选项会有所不同。
 
-![](../image/general/nifi-processor-menu.png)
+![](./image/general/nifi-processor-menu.png)
 
 虽然上下文菜单中的选项有所不同,但是当您具有使用处理器的完全权限时,通常可以使用以下选项：
 
 - **配置(Configure)**：此选项允许用户建立或更改处理器的配置(请参阅[配置处理器](#配置处理器))。
 
-![](../image/general/i.png)对于处理器,端口,远程进程组,连接和标签,可以通过双击所需组件来打开配置对话框。
+![](./image/general/i.png)对于处理器,端口,远程进程组,连接和标签,可以通过双击所需组件来打开配置对话框。
 
 - **启动(Start)或停止(stop)**：此选项允许用户启动或停止处理器;该选项可以是Start或Stop,具体取决于处理器的当前状态。
 
@@ -204,19 +204,19 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 - **删除(Delete)**：此选项允许DFM从画布中删除处理器。
 
-![](../image/general/iconInputPort.png)**输入端口(Input Port)**：输入端口提供将数据传输到进程组的机制。将输入端口拖动到画布上时,将提示DFM命名端口。进程组中的所有端口必须具有唯一的名称。
+![](./image/general/iconInputPort.png)**输入端口(Input Port)**：输入端口提供将数据传输到进程组的机制。将输入端口拖动到画布上时,将提示DFM命名端口。进程组中的所有端口必须具有唯一的名称。
 
 所有组件仅存在于进程组中。当用户最初导航到NiFi页面时,用户被放置在根进程组中。如果将输入端口拖动到根进程组,则输入端口提供了一种通过站点到站点从远程NiFi实例接收数据的机制。在这种情况下,如果NiFi配置为安全运行,则可以将输入端口配置为限制对适当用户的访问。有关配置NiFi以安全运行的信息,请参阅" 系统管理员指南"。
 
-![](../image/general/iconOutputPort.png)**输出端口(Output Port)**：输出端口提供了一种机制,用于将数据从进程组传输到进程组外部的目标。将输出端口拖动到画布上时,将提示DFM命名端口。进程组中的所有端口必须具有唯一的名称。
+![](./image/general/iconOutputPort.png)**输出端口(Output Port)**：输出端口提供了一种机制,用于将数据从进程组传输到进程组外部的目标。将输出端口拖动到画布上时,将提示DFM命名端口。进程组中的所有端口必须具有唯一的名称。
 
 如果将输出端口拖动到根进程组,则输出端口提供了一种通过[站点到站点](#站点到站点(s2s))将数据发送到远程NiFi实例的机制。在这种情况下,端口充当队列。当NiFi的远程实例从端口提取数据时,该数据将从传入的Connections的队列中删除。如果NiFi配置为安全运行,则可以将输出端口配置为限制适当用户的访问。有关配置NiFi以安全运行的信息,请参阅[系统管理员指南](./AdminGuide)。
 
-![](../image/general/iconProcessGroup.png)**进程组(Process Group)**：进程组可用于对一组组件进行逻辑分组,以便更容易理解和维护DataFlow。将进程组拖动到画布上时,将提示DFM命名进程组。同一父组中的所有进程组必须具有唯一的名称。然后,进程组将嵌套在该父组中。
+![](./image/general/iconProcessGroup.png)**进程组(Process Group)**：进程组可用于对一组组件进行逻辑分组,以便更容易理解和维护DataFlow。将进程组拖动到画布上时,将提示DFM命名进程组。同一父组中的所有进程组必须具有唯一的名称。然后,进程组将嵌套在该父组中。
 
 将进程组拖到画布上后,可以通过右键单击进程组并从上下文菜单中选择一个选项来与其进行交互。从上下文菜单中可用的选项会有所不同,具体取决于分配给您的权限。
 
-![](../image/general/nifi-process-group-menu.png)
+![](./image/general/nifi-process-group-menu.png)
 
 虽然上下文菜单中提供的选项各不相同,但如果您具有进程组的完全使用权限,则通常可以使用以下选项：
 
@@ -226,7 +226,7 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 - **输入组(Enter group)**：此选项允许用户进入进程组。
 
-![](../image/general/i.png)也可以双击进程组输入它。
+![](./image/general/i.png)也可以双击进程组输入它。
 
 - **开始(Start)**：此选项允许用户启动进程组。
 
@@ -248,11 +248,11 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 - **删除(Delete)**：此选项允许DFM删除进程组。
 
-![](../image/general/iconRemoteProcessGroup.png)**远程进程组(Remote Process Group)**：远程进程组显示和行为都类似于进程组。但是,远程进程组(RPG)引用了NiFi的远程实例。将RPG拖动到画布上时,不会提示输入名称,而是提示DFM输入远程NiFi实例的URL。如果远程NiFi是集群模式,则应使用的URL是该集群中任意NiFi实例的URL。当数据通过RPG传输到NiFi集群时,RPG将首先连接到远程实例,其URL配置会帮助确定集群中的节点以及每个节点的繁忙程度。然后,此信息用于对推送到每个节点的数据进行负载平衡。然后定期询问远程实例,以确定有关从集群中删除或添加到集群的任何节点的信息,并根据每个节点的负载重新计算负载平衡。有关更多信息,请参阅有关的部分站点到站点。
+![](./image/general/iconRemoteProcessGroup.png)**远程进程组(Remote Process Group)**：远程进程组显示和行为都类似于进程组。但是,远程进程组(RPG)引用了NiFi的远程实例。将RPG拖动到画布上时,不会提示输入名称,而是提示DFM输入远程NiFi实例的URL。如果远程NiFi是集群模式,则应使用的URL是该集群中任意NiFi实例的URL。当数据通过RPG传输到NiFi集群时,RPG将首先连接到远程实例,其URL配置会帮助确定集群中的节点以及每个节点的繁忙程度。然后,此信息用于对推送到每个节点的数据进行负载平衡。然后定期询问远程实例,以确定有关从集群中删除或添加到集群的任何节点的信息,并根据每个节点的负载重新计算负载平衡。有关更多信息,请参阅有关的部分站点到站点。
 
 将远程进程组拖到画布上后,可以通过右键单击远程进程组并从上下文菜单中选择一个选项来与其进行交互。根据分配给您的权限,上下文菜单中可用的选项会有所不同。
 
-![](../image/general/nifi-rpg-menu.png)
+![](./image/general/nifi-rpg-menu.png)
 
 虽然上下文菜单中的选项有所不同,但是当您具有远程进程组的完全使用权限时,通常可以使用以下选项：
 
@@ -284,27 +284,27 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 - **删除(Delete)**：此选项允许DFM从画布中删除远程进程组。
 
-![](../image/general/iconFunnel.png)**漏斗(Funnel)**：漏斗用于将来自多个Connections的数据合并到一个Connection中。这有两个好处。首先,如果使用相同的数据源创建了许多Connection,而如果这些连接必须跨越大空间,则画布可能会变得混乱。通过将这些Connections汇集到一个Connection中,可以绘制一个Connection来跨越该大空间就可以了。其次,可以使用FlowFile优先级配置器配置Connections。来自多个Connections的数据可以汇集到一个Connection中,从而能够对该一个Connection上的所有数据进行优先级排序,而不是单独确定每个Connection上的数据的优先级。
+![](./image/general/iconFunnel.png)**漏斗(Funnel)**：漏斗用于将来自多个Connections的数据合并到一个Connection中。这有两个好处。首先,如果使用相同的数据源创建了许多Connection,而如果这些连接必须跨越大空间,则画布可能会变得混乱。通过将这些Connections汇集到一个Connection中,可以绘制一个Connection来跨越该大空间就可以了。其次,可以使用FlowFile优先级配置器配置Connections。来自多个Connections的数据可以汇集到一个Connection中,从而能够对该一个Connection上的所有数据进行优先级排序,而不是单独确定每个Connection上的数据的优先级。
 
-![](../image/general/iconTemplate.png)**模板(Template)**：模板可以由流的各个部分的DFM创建,也可以从其他DataFlow导入。这些模板提供了更大的构建块,可以快速创建复杂的流程。将模板拖动到画布上时,DFM会提供一个对话框,用于选择要添加到画布的模板：
+![](./image/general/iconTemplate.png)**模板(Template)**：模板可以由流的各个部分的DFM创建,也可以从其他DataFlow导入。这些模板提供了更大的构建块,可以快速创建复杂的流程。将模板拖动到画布上时,DFM会提供一个对话框,用于选择要添加到画布的模板：
 
-![](../image/general/instantiate-template.png)
+![](./image/general/instantiate-template.png)
 
 单击下拉框可显示所有可用模板。创建的任何使用描述了的模板都将显示一个问号图标,会提供有更多信息。使用鼠标将鼠标悬停在图标上将显示以下说明：
 
-![](../image/general/instantiate-template-description.png)
+![](./image/general/instantiate-template-description.png)
 
-![](../image/general/iconLabel.png)**标签(Label)**：标签用于为数据流的各个部分提供文档说明。将Label放到画布上时,会使用默认大小创建它。然后可以通过拖动右下角的手柄来调整Label的大小。标签在最初创建时没有文本。可以通过右键单击Label并选择Configure来添加Label的文本。
+![](./image/general/iconLabel.png)**标签(Label)**：标签用于为数据流的各个部分提供文档说明。将Label放到画布上时,会使用默认大小创建它。然后可以通过拖动右下角的手柄来调整Label的大小。标签在最初创建时没有文本。可以通过右键单击Label并选择Configure来添加Label的文本。
 
 ### 组件版本
 
 您可以访问有关Processors,Controller Services和Reporting Tasks的版本的信息。Add Processor,Add Controller Service和Add Reporting Task对话框包括一个标识组件版本的列,以及组件的名称,创建组件的组织或组以及包含该组件的NAR包。
 
-![](../image/general/add-processor-version-example.png)
+![](./image/general/add-processor-version-example.png)
 
 画布上显示的每个组件也包含此信息。
 
-![](../image/general/processor-version-information-example.png)
+![](./image/general/processor-version-information-example.png)
 
 #### 排序和过滤组件
 
@@ -314,7 +314,7 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 要基于源组进行过滤,请单击 Add Component对话框左上角的源下拉列表,然后选择要查看的组。
 
-![](../image/general/add-processor-version-sort-filter.png)
+![](./image/general/add-processor-version-sort-filter.png)
 
 #### 更改组件版本
 
@@ -324,11 +324,11 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 2. 选择更改版本。
 
-![](../image/general/processor-change-version.png)
+![](./image/general/processor-change-version.png)
 
 1. 在Component Version对话框中,从Version下拉菜单中选择要运行的版本。
 
-![](../image/general/component-version-dialog.png)
+![](./image/general/component-version-dialog.png)
 
 #### 了解版本依赖关系
 
@@ -340,19 +340,19 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 3. 单击信息图标以查看版本依赖关系信息。
 
-![](../image/general/configure-processor-with-version-information.png)
+![](./image/general/configure-processor-with-version-information.png)
 
 在以下示例中,使用控制器服务StandardMyService 1.0版正确配置了MyProcessor 1.0版：
 
-![](../image/general/processor-cs-version-match.png)
+![](./image/general/processor-cs-version-match.png)
 
 如果MyProcessor的版本更改为不兼容的版本(MyProcessor 2.0),则验证错误将显示在处理器上
 
-![](../image/general/processor-cs-version-mismatch-warnings.png)
+![](./image/general/processor-cs-version-mismatch-warnings.png)
 
 并且由于服务不再有效,因此处理器的控制器服务配置中将显示错误消息：
 
-![](../image/general/processor-cs-version-mismatch-config.png)
+![](./image/general/processor-cs-version-mismatch-config.png)
 
 ### 配置处理器
 
@@ -368,7 +368,7 @@ DFM能够使用NiFi UI构建DataFlow。只需将组件从工具栏拖到画布,�
 
 处理器配置对话框中的第一个选项卡是Settings选项卡：
 
-![](../image/general/settings-tab.png)
+![](./image/general/settings-tab.png)
 
 此选项卡包含几个不同的配置项。首先,它允许DFM更改处理器的名称。默认情况下,处理器的名称与处理器类名相同。处理器名称旁边是一个复选框,指示处理器是否已启用。将处理器添加到画布后,将启用它。如果禁用处理器,则无法启动。禁用状态用于指示当启动一组处理器时,例如当DFM启动整个进程组时,应排除此(disabled)处理器。
 
@@ -386,7 +386,7 @@ Settings选项卡的右侧包含自动终止关系(Automatically Terminate Relat
 
 处理器配置对话框中的第二个选项卡是Scheduling选项卡：
 
-![](../image/general/scheduling-tab.png)
+![](./image/general/scheduling-tab.png)
 
 ##### 调度策略
 
@@ -448,11 +448,11 @@ Year (optional) | empty, 1970-2099
 
 执行设置用于确定处理器将被调度执行的节点。选择"All Nodes"将导致在集群中的每个节点上调度此处理器。选择"Primary Node"将导致此处理器仅在主节点上进行调度。已配置"Primary Node"执行的处理器由处理器图标旁边的"P"标识：
 
-![](../image/general/primary-node-processor.png)
+![](./image/general/primary-node-processor.png)
 
 要快速识别"Primary Node"处理器,"P"图标也会显示在摘要页面的处理器选项卡中：
 
-![](../image/general/primary-node-processors-summary.png)
+![](./image/general/primary-node-processors-summary.png)
 
 ##### 运行持续时间
 
@@ -462,31 +462,31 @@ Year (optional) | empty, 1970-2099
 
 Properties选项卡提供了一种特定于Processor的行为机制的配置。每种类型的处理器必须定义哪些属性对其用例有意义。下面,我们看到RouteOnAttribute Processor的Properties选项卡：
 
-![](../image/general/properties-tab.png)
+![](./image/general/properties-tab.png)
 
-默认情况下,此处理器只有一个属性："Routing Strategy"。默认值为"Route to Property name"。此属性的名称旁边是一个小问号符号![](../image/general/iconInfo.png)。在整个用户界面的其他位置也可以看到此帮助符号,它表示可以获得更多信息。使用鼠标将鼠标悬停在此符号上将提供有关属性和默认值的其他详细信息,以及为该属性设置的历史值。
+默认情况下,此处理器只有一个属性："Routing Strategy"。默认值为"Route to Property name"。此属性的名称旁边是一个小问号符号![](./image/general/iconInfo.png)。在整个用户界面的其他位置也可以看到此帮助符号,它表示可以获得更多信息。使用鼠标将鼠标悬停在此符号上将提供有关属性和默认值的其他详细信息,以及为该属性设置的历史值。
 
 单击属性的值将允许DFM更改该值。根据属性允许的值,向用户提供从中选择值的下拉列表,或者为用户提供键入值的文本区域：
 
-![](../image/general/edit-property-dropdown.png)
+![](./image/general/edit-property-dropdown.png)
 
 选项卡的右上角是一个用于添加新属性的按钮。单击此按钮将为DFM提供一个对话框,用于输入新属性的名称和值。并非所有处理器都允许用户自定义的属性。在不允许它们的处理器中,处理器在应用用户定义属性时变为无效。但是,RouteOnAttribute允许用户定义的属性。实际上,在用户添加属性之前,此处理器无效。
 
-![](../image/general/edit-property-textarea.png)
+![](./image/general/edit-property-textarea.png)
 
-请注意,添加了User-Defined属性后,该行的右侧将出现一个图标![](../image/general/iconDelete.png)。单击它将从处理器中删除用户定义的属性。
+请注意,添加了User-Defined属性后,该行的右侧将出现一个图标![](./image/general/iconDelete.png)。单击它将从处理器中删除用户定义的属性。
 
 某些处理器还内置了高级用户界面(UI)。例如,UpdateAttribute处理器具有高级UI。要访问高级用户界面,请单击Advanced"配置处理器"窗口底部显示的按钮。只有具有高级UI的处理器才具有此按钮。
 
 某些处理器具有引用其他组件的属性,例如Controller Services,这些组件也需要进行配置。例如,GetHTTP处理器具有SSLContextService属性,该属性引用StandardSSLContextService控制器服务。当DFM想要配置此属性但尚未创建和配置控制器服务时,他们可以选择在现场创建服务,如下图所示。有关配置Controller Services的详细信息,请参阅[Controller Services](#控制器服务)部分。
 
-![](../image/general/create-service-ssl-context.png)
+![](./image/general/create-service-ssl-context.png)
 
 #### 注释(Comments)
 
 处理器配置对话框中的最后一个选项卡是注释选项卡。此选项卡仅为用户提供一个区域,以包含适用于此组件的任何注释。注释选项卡是可选的：
 
-![](../image/general/comments-tab.png)
+![](./image/general/comments-tab.png)
 
 ### Processor帮助文档
 
@@ -528,33 +528,33 @@ Properties选项卡提供了一种特定于Processor的行为机制的配置。�
 
 要访问Variables 窗口,请右键单击画布空白处：
 
-![](../image/general/variables-context_menu-rpg.png)
+![](./image/general/variables-context_menu-rpg.png)
 
 从上下文菜单中选择Variables：
 
-![](../image/general/variables_window_empty.png)
+![](./image/general/variables_window_empty.png)
 
 选择进程组时,右键单击上下文菜单中也可以使用Variables：
 
-![](../image/general/variables-context_menu-pg.png)
+![](./image/general/variables-context_menu-pg.png)
 
 ##### 创建变量
 
 在Variables窗口中,单击+按钮以创建新变量。添加名称：
 
-![](../image/general/variable-name.png)
+![](./image/general/variable-name.png)
 
 和一个值：
 
-![](../image/general/variable-value.png)
+![](./image/general/variable-value.png)
 
 选择Apply：
 
-![](../image/general/new_variable-apply.png)
+![](./image/general/new_variable-apply.png)
 
 执行更新变量的步骤(识别受影响的组件,停止受影响的处理器等)。例如,Referencing Processors部分现在列出了"PutFile-Root"处理器。在列表中选择处理器的名称将导航到画布上的该处理器。查看处理器的属性,${putfile_dir}由Directory属性引用：
 
-![](../image/general/variable-putfile-property.png)
+![](./image/general/variable-putfile-property.png)
 
 ##### 变量的作用域
 
@@ -564,15 +564,15 @@ Properties选项卡提供了一种特定于Processor的行为机制的配置。�
 
 例如,除了putfile_dir根进程组中存在的变量之外,假设putfile_dir在进程组A中创建了另一个变量。如果进程组A中的一个组件引用putfile_dir,则将列出这两个变量,但是putfile_dir根组中的变量将是有一个删除线表明被覆盖：
 
-![](../image/general/variable-overridden.png)
+![](./image/general/variable-overridden.png)
 
 只能为其创建的进程组修改变量,该变量列在变量窗口的顶部。要修改在不同进程组中定义的变量,请选择该变量行中的箭头图标：
 
-![](../image/general/variable_window-goto.png)
+![](./image/general/variable_window-goto.png)
 
 这将导航到该进程组的Variables窗口：
 
-![](../image/general/variable_window-rpg.png)
+![](./image/general/variable_window-rpg.png)
 
 ##### 变量权限
 
@@ -580,7 +580,7 @@ Properties选项卡提供了一种特定于Processor的行为机制的配置。�
 
 例如,如果用户无权查看进程组,则无法查看该进程组的变量窗口：
 
-![](../image/general/variable_insufficient-permissions.png)
+![](./image/general/variable_insufficient-permissions.png)
 
 如果用户有权查看流程组但无权修改流程组,则可以查看变量但不能修改变量。
 
@@ -590,21 +590,21 @@ Properties选项卡提供了一种特定于Processor的行为机制的配置。�
 
 除了Referencing Processors之外,Variables窗口还显示Referencing Controller Services：
 
-![](../image/general/variables-window_controller-services.png)
+![](./image/general/variables-window_controller-services.png)
 
 选择控制器服务的名称将导航到该控制器服务的配置窗口中：
 
-![](../image/general/variable_nav-controller_services.png)
+![](./image/general/variable_nav-controller_services.png)
 
 ##### 未经授权的引用组件
 
 如果未向引用变量的组件提供查看或修改权限,则组件的UUID将显示在变量窗口中：
 
-![](../image/general/variables-window_unauthorized.png)
+![](./image/general/variables-window_unauthorized.png)
 
 在上面的示例中,变量property1由user1无法查看的处理器引用：
 
-![](../image/general/variable-unauthorized-ref-processor-canvas.png)
+![](./image/general/variable-unauthorized-ref-processor-canvas.png)
 
 #### 通过nifi.properties引用自定义属性
 
@@ -612,50 +612,50 @@ Properties选项卡提供了一种特定于Processor的行为机制的配置。�
 
 添加新的自定义属性后,请确保使用自定义属性位置更新nifi.properties文件中的nifi.variable.registry.properties 字段。
 
-![](../image/general/i.png)必须重新启动NiFi才能获取这些更新。
+![](./image/general/i.png)必须重新启动NiFi才能获取这些更新。
 有关详细信息,请参阅[系统管理员指南](./AdminGuide)中的[自定义属性](./AdminGuide#自定义属性)部分。
 
 ### 控制器服务
 
 Controller Services是共享服务,可供给报告任务,处理器和其他服务使用,以用于配置或任务执行。
 
-![](../image/general/ii.png)控制器级别定义的控制器服务仅限于报告任务和其中定义的其他服务。必须在将要使用它们的根进程组或子进程组的配置中定义控制器服务。
+![](./image/general/ii.png)控制器级别定义的控制器服务仅限于报告任务和其中定义的其他服务。必须在将要使用它们的根进程组或子进程组的配置中定义控制器服务。
 
-![](../image/general/i.png)如果您的NiFi实例受到保护,您查看和添加Controller Services的能力取决于分配给您的权限。如果您无权访问一个或多个Controller Services,则无法在UI中查看或访问它。可以在全局或特定于Controller Service的基础上分配访问权限(有关更多信息,请参阅访问[具有多租户授权的UI](#使用多租户授权访问UI))。
+![](./image/general/i.png)如果您的NiFi实例受到保护,您查看和添加Controller Services的能力取决于分配给您的权限。如果您无权访问一个或多个Controller Services,则无法在UI中查看或访问它。可以在全局或特定于Controller Service的基础上分配访问权限(有关更多信息,请参阅访问[具有多租户授权的UI](#使用多租户授权访问UI))。
 
 #### 为报告任务添加控制器服务
 
 要为报告任务添加控制器服务,请从全局菜单中选择控制器设置。
 
-![](../image/general/controller-settings-selection.png)
+![](./image/general/controller-settings-selection.png)
 
 这将显示NiFi设置窗口。该窗口有四个选项卡：常规(General),报告任务控制器服务(Reporting Task Controller Services),报告任务(Reporting Tasks)和注册表客户端(Registry Clients)。常规选项卡提供实例的总体最大线程数的设置。
 
-![](../image/general/settings-general-tab.png)
+![](./image/general/settings-general-tab.png)
 
 常规选项卡右侧是报告任务控制器服务选项卡。在此选项卡中,DFM可以单击右上角的+按钮以创建新的Controller Service。
 
-![](../image/general/controller-services-tab.png)
+![](./image/general/controller-services-tab.png)
 
 添加控制器服务窗口打开。此窗口类似于添加处理器窗口。它提供了右侧可用的Controller Services列表和标签云,显示了左侧用于Controller Services的最常见类别标签。DFM可以单击标签云中的任何标签,以便将Controller Services列表缩小到适合所需类别的那些。DFM还可以使用窗口右上角的过滤器字段来搜索所需的控制器服务,或使用左上角的源(Source)下拉列表按创建它们的组筛选列表。从列表中选择Controller Service后,DFM可以在下面看到该服务的描述。选择所需的控制器服务,然后单击添加按钮,或者双击要添加的服务名称即可。
 
-![](../image/general/add-controller-service-window.png)
+![](./image/general/add-controller-service-window.png)
 
 添加控制器服务后,可以通过单击Configure最右侧列中的按钮进行配置。此列中的其他按钮包括Enable,Remove和Access Policies。
 
-![](../image/general/controller-services-configure-buttons.png)
+![](./image/general/controller-services-configure-buttons.png)
 
 您可以通过单击左侧列中的Usage和Alerts按钮来获取有关Controller Services的信息。
 
-![](../image/general/controller-services-info-buttons.png)
+![](./image/general/controller-services-info-buttons.png)
 
 当DFM单击该Configure按钮时,将打开配置控制器服务窗口。它有三个选项卡：设置,属性和注释。此窗口类似于配置处理器窗口。设置选项卡为DFM提供了一个位置,以便为Controller Service提供唯一的名称。它还列出了服务的UUID,类型,捆绑和支持信息,并提供了引用该服务的其他组件(报告任务或其他控制器服务)的列表。
 
-![](../image/general/configure-controller-service-settings.png)
+![](./image/general/configure-controller-service-settings.png)
 
 属性选项卡列出了适用于特定控制器服务的各种属性。与配置处理器一样,DFM可以将鼠标悬停在问号图标上以查看有关每个属性的更多信息。
 
-![](../image/general/configure-controller-service-properties.png)
+![](./image/general/configure-controller-service-properties.png)
 
 注释选项卡只是一个开放文本,其中可能包含DFM对有关服务的注释。配置Controller Service后,单击Apply按钮以应用配置并关闭窗口,或单击Cancel按钮取消更改并关闭窗口。
 
@@ -663,17 +663,17 @@ Controller Services是共享服务,可供给报告任务,处理器和其他服�
 
 要为数据流添加控制器服务,可以右键单击进程组并选择配置,或单击操作选项板中的配置。
 
-![](../image/general/process-group-configuration-options.png)
+![](./image/general/process-group-configuration-options.png)
 
 在画布上单击操作选项板中的配置时,如果未在画布上选择任何内容,则为**根进程组**添加控制器服务。然后,该控制器服务可用于数据流中的所有嵌套进程组。在画布上选择进程组,然后从操作选项板或进程组上下文菜单中单击配置时,该服务将可用于该进程组及以下中定义的所有处理器和控制器服务。
 
-![](../image/general/process-group-controller-services-scope.png)
+![](./image/general/process-group-controller-services-scope.png)
 
 使用以下步骤添加Controller Service：
 
 1、单击配置,可以从操作选项板或进程组上下文菜单中单击配置。这将显示进程组配置窗口。该窗口有两个选项卡：常规和控制器服务。常规选项卡用于与有关进程组的常规信息有关的设置。例如,如果配置根进程组,DFM可以为整个数据流提供唯一的名称,以及描述流的注释(注意：此信息对于远程连接到此实例的任何其他NiFi实例是可见的(使用远程进程组,又名,站点到站点))。
 
-![](../image/general/process-group-configuration-window.png)
+![](./image/general/process-group-configuration-window.png)
 
 2、从Process Group Configuration页面中,选择Controller Services选项卡。
 
@@ -681,53 +681,53 @@ Controller Services是共享服务,可供给报告任务,处理器和其他服�
 
 4、选择所需的Controller Service,然后单击添加。
 
-5、单击![](../image/general/iconConfigure.png)右侧列中的配置图标,配置Controller Service。
+5、单击![](./image/general/iconConfigure.png)右侧列中的配置图标,配置Controller Service。
 
 #### 启用/禁用控制器服务
 
-配置Controller Service后,必须启用它才能运行。使用控制器服务选项卡的最右侧列中的Enable按钮(![](../image/general/iconEnable.png))来执行此操作。为了修改现有或正在运行的控制器服务,DFM需要停止或禁用它(以及所有引用此Controller Service的组件)。使用Disable按钮(![](../image/general/iconDisable.png))执行此操作。DFM可以在禁用相关控制器服务时停止/禁用哪些依赖此控制器服务的组件,而不必搜寻引用该控制器服务的每个组件。启用控制器服务时,DFM可以选择启动或启用控制器服务和所有引用它的组件,也可以仅启动或启用控制器服务本身。
+配置Controller Service后,必须启用它才能运行。使用控制器服务选项卡的最右侧列中的Enable按钮(![](./image/general/iconEnable.png))来执行此操作。为了修改现有或正在运行的控制器服务,DFM需要停止或禁用它(以及所有引用此Controller Service的组件)。使用Disable按钮(![](./image/general/iconDisable.png))执行此操作。DFM可以在禁用相关控制器服务时停止/禁用哪些依赖此控制器服务的组件,而不必搜寻引用该控制器服务的每个组件。启用控制器服务时,DFM可以选择启动或启用控制器服务和所有引用它的组件,也可以仅启动或启用控制器服务本身。
 
-![](../image/general/enable-controller-service-scope.png)
+![](./image/general/enable-controller-service-scope.png)
 
 ### 任务监控(Reporting Tasks)
 
 报告任务在后台运行,以提供有关NiFi实例中发生情况的统计报告。DFM添加和配置报告任务,类似于Controller Services的过程。要添加报告任务,请从全局菜单中选择控制器设置。
 
-![](../image/general/controller-settings-selection.png)
+![](./image/general/controller-settings-selection.png)
 
 这将显示NiFi设置窗口。选择报告任务选项卡,然后单击右上角的+按钮以创建新的报告任务。
 
-![](../image/general/reporting-tasks-tab.png)
+![](./image/general/reporting-tasks-tab.png)
 
 打开添加报告任务窗口。此窗口类似于添加处理器窗口。它提供了右侧可用报告任务的列表和标签云,显示了左侧用于报告任务的最常见类别标签。DFM可以单击标签云中的任何标签,以便将报告任务列表缩小到适合所需类别的那些。DFM还可以使用窗口右上角的过滤器字段来搜索所需的报告任务,或使用左上角的源(source)下拉列表按创建它们的组筛选列表。从列表中选择报告任务后,DFM可以在下面看到该任务的描述。选择所需的报告任务,然后单击添加,或者双击要添加的服务名称即可。
 
-![](../image/general/add-reporting-task-window.png)
+![](./image/general/add-reporting-task-window.png)
 
 添加报告任务后,DFM可以通过单击Edit最右侧列中的按钮对其进行配置。在此列中的其他按钮包括Start,Remove,State和Access Policies。
 
-![](../image/general/reporting-tasks-edit-buttons.png)
+![](./image/general/reporting-tasks-edit-buttons.png)
 
 您可以获取有关通过点击报告任务信息View Details,Usage以及Alerts在左侧栏中的按钮。
 
-![](../image/general/reporting-tasks-info-buttons.png)
+![](./image/general/reporting-tasks-info-buttons.png)
 
 当DFM单击该Edit按钮时,将打开配置报告任务窗口。它有三个选项卡：设置,属性和注释。此窗口类似于配置处理器窗口。设置选项卡为DFM提供了一个位置,以便为报告任务提供唯一的名称(如果需要)。它还列出了任务的UUID,Type和Bundle信息,并提供了任务的Scheduling Strategy和Run Schedule的设置(类似于处理器中的相同设置)。DFM可以将鼠标悬停在问号图标上以查看有关每个设置的更多信息。
 
-![](../image/general/configure-reporting-task-settings.png)
+![](./image/general/configure-reporting-task-settings.png)
 
 属性选项卡列出了可为任务配置的各种属性。DFM可以将鼠标悬停在问号图标上以查看有关每个属性的更多信息。
 
-![](../image/general/configure-reporting-task-properties.png)
+![](./image/general/configure-reporting-task-properties.png)
 
 注释选项卡只是一个开放文本字段,其中DFM可能包含有关任务的注释。配置报告任务后,单击Apply按钮以应用配置并关闭窗口,或单击Cancel按钮取消更改并关闭窗口。
 
-如果要运行"报告任务",请单击Start按钮![](../image/general/iconStart.png)
+如果要运行"报告任务",请单击Start按钮![](./image/general/iconStart.png)
 
 ### 连接组件(Connecting Components)
 
-将处理器和其他组件添加到画布并进行配置后,下一步是将它们彼此连接,以便让NiFi知道在处理完每个FlowFile后如何传输数据。这是通过在每个组件之间创建连接来实现的。当用户将鼠标悬停在组件的中心上时,会出现一个新的连接图标![](../image/general/addConnect.png)
+将处理器和其他组件添加到画布并进行配置后,下一步是将它们彼此连接,以便让NiFi知道在处理完每个FlowFile后如何传输数据。这是通过在每个组件之间创建连接来实现的。当用户将鼠标悬停在组件的中心上时,会出现一个新的连接图标![](./image/general/addConnect.png)
 
-![](../image/general/processor-connection-bubble.png)
+![](./image/general/processor-connection-bubble.png)
 
 用户将连接图标从一个组件拖动到另一个组件当用户释放鼠标时,会出现创建连接对话框。该对话框包含两个选项卡：详细信息和设置。它们将在下面详细讨论。请注意,可以绘制在同一处理器上循环的连接。如果DFM希望处理器在失败关系时尝试重新处理FlowFiles,这将非常有用。要创建这种类型的循环连接,只需将连接图标拖离,然后再返回到同一处理器,然后释放鼠标,出现相同的创建连接对话框。
 
@@ -735,17 +735,17 @@ Controller Services是共享服务,可供给报告任务,处理器和其他服�
 
 创建连接对话框的详细信息选项卡提供有关上下游组件的信息,包括组件名称,组件类型和组件所在的进程组：
 
-![](../image/general/create-connection.png)
+![](./image/general/create-connection.png)
 
 此外,此选项卡还提供了选择此Connection中应包含哪些关系的功能。必须至少选择一个关系。如果只有一个关系可用,则会自动选择它。
 
-![](../image/general/i.png)如果使用相同的关系添加多个Connections,则路由到该关系的任何FlowFile将自动clone,并且将向每个Connections发送一个副本。
+![](./image/general/i.png)如果使用相同的关系添加多个Connections,则路由到该关系的任何FlowFile将自动clone,并且将向每个Connections发送一个副本。
 
 #### 设置
 
 设置选项卡提供配置连接名称,FlowFile到期,背压阈值,负载平衡策略和优先级的功能：
 
-![](../image/general/connection-settings.png)
+![](./image/general/connection-settings.png)
 
 连接名称是可选的。如果未指定,则为Connection显示的名称将是Connection的活动关系的名称。
 
@@ -753,25 +753,25 @@ Controller Services是共享服务,可供给报告任务,处理器和其他服�
 
 FlowFile到期是一个概念,通过该概念可以自动从流中删除无法及时处理的数据。在这种情况下,到期可以与优先级排序器一起使用,以确保首先处理最高优先级数据,然后可以丢弃在特定时间段(例如,一小时)内无法处理的任何内容。到期时间基于数据进入NiFi实例的时间。换句话说,如果给定连接上的文件到期时间设置为1小时,并且已经在NiFi实例中存在一小时的文件到达该连接,则该文件将过期。默认值为0 sec表示数据永不过期。当设置了0秒以外的文件到期时,连接标签上会出现一个小时钟图标,因此在查看画布上的流时,DFM可以一目了然地看到它。
 
-![](../image/general/file_expiration_clock.png)
+![](./image/general/file_expiration_clock.png)
 
 ##### 背压
 
 NiFi为背压提供两种配置元素。这些阈值表示允许在队列中存在多少数据。这允许系统避免数据溢出。提供的第一个选项是Back pressure object threshold(背压对象阈值)。这是在应用背压之前可以在队列中的FlowFiles的数量。第二个配置选项是Back pressure data size threshold(背压数据大小阈值)。这指定了在应用反压之前应排队的最大数据量(大小)。通过输入数字后跟数据大小(B对于字节,KB对于千字节,MB对于兆字节,GB对于千兆字节或TB对于太字节)来配置此值。
 
-![](../image/general/i.png)默认情况下,添加的每个新连接都将具有默认的背压对象阈值10000 objects和背压数据大小阈值1 GB。可以通过修改nifi.properties文件中的相应属性来更改这些默认值。
+![](./image/general/i.png)默认情况下,添加的每个新连接都将具有默认的背压对象阈值10000 objects和背压数据大小阈值1 GB。可以通过修改nifi.properties文件中的相应属性来更改这些默认值。
 
 启用背压时,连接标签上会出现小进度条,因此在查看画布上的流时,DFM可以一目了然地看到它。进度条根据队列百分比更改颜色：绿色(0-60％),黄色(61-85％)和红色(86-100％)。
 
-![](../image/general/back_pressure_indicators.png)
+![](./image/general/back_pressure_indicators.png)
 
 将鼠标悬停在条形图上会显示确切的百分比。
 
-![](../image/general/back_pressure_indicator_hover.png)
+![](./image/general/back_pressure_indicator_hover.png)
 
 队列完全填满后,Connection将以红色突出显示。
 
-![](../image/general/back_pressure_full.png)
+![](./image/general/back_pressure_full.png)
 
 ##### 负载均衡
 
@@ -787,15 +787,15 @@ NiFi为背压提供两种配置元素。这些阈值表示允许在队列中存�
 
 - **单个节点**：所有FlowFiles将发送到集群中的单个节点。它们被发送到哪个节点是不可配置的。如果节点与集群断开连接或无法与节点通信,则排队等待该节点的数据将保持排队,直到该节点再次可用。
 
-![](../image/general/i.png)除UI设置外,还有与负载平衡相关的[集群节点属性](./AdminGuide#集群节点属性),还必须在nifi.properties中进行配置。
+![](./image/general/i.png)除UI设置外,还有与负载平衡相关的[集群节点属性](./AdminGuide#集群节点属性),还必须在nifi.properties中进行配置。
 
-![](../image/general/i.png)NiFi会在重新启动时持久保存集群中的节点。这可以防止在所有节点都已连接之前重新分配数据。如果集群已关闭且不打算重新启动节点,则用户有责任通过UI中的集群对话框从集群中删除该节点(有关详细信息,请参阅[管理节点](./AdminGuide#管理节点))。
+![](./image/general/i.png)NiFi会在重新启动时持久保存集群中的节点。这可以防止在所有节点都已连接之前重新分配数据。如果集群已关闭且不打算重新启动节点,则用户有责任通过UI中的集群对话框从集群中删除该节点(有关详细信息,请参阅[管理节点](./AdminGuide#管理节点))。
 
 ###### 负载平衡压缩
 
 选择负载平衡策略后,用户可以配置在集群中的节点之间传输时是否应压缩数据。
 
-![](../image/general/load_balance_compression_options.png)
+![](./image/general/load_balance_compression_options.png)
 
 可以使用以下压缩选项：
 
@@ -807,27 +807,27 @@ NiFi为背压提供两种配置元素。这些阈值表示允许在队列中存�
 
 ###### 负载平衡指示器
 
-为连接实施负载平衡策略后,连接负载平衡图标上![](../image/general/iconLoadBalance.png)将显示负载平衡指示符：
+为连接实施负载平衡策略后,连接负载平衡图标上![](./image/general/iconLoadBalance.png)将显示负载平衡指示符：
 
-![](../image/general/load_balance_configured_connection.png)
+![](./image/general/load_balance_configured_connection.png)
 
 将鼠标悬停在该图标上将显示连接的负载平衡策略和压缩配置。此状态下的图标还表示连接中的所有数据都已在集群中分布。
 
-![](../image/general/load_balance_distributed_connection.png)
+![](./image/general/load_balance_distributed_connection.png)
 
 当在集群中的节点之间主动传输数据时,负载平衡指示器将更改方向和颜色：
 
-![](../image/general/load_balance_active_connection.png)
+![](./image/general/load_balance_active_connection.png)
 
 ###### 集群连接摘要
 
 要查看在集群节点之间分配数据的位置,请从全局菜单中选择摘要。然后选择Connections选项卡和View Connection Details：
 
-![](../image/general/summary_connections.png)
+![](./image/general/summary_connections.png)
 
 这将打开集群连接摘要对话框,该对话框显示集群中每个节点上的数据：
 
-![](../image/general/cluster_connection_summary.png)
+![](./image/general/cluster_connection_summary.png)
 
 ##### 优先级
 
@@ -851,17 +851,17 @@ NiFi为背压提供两种配置元素。这些阈值表示允许在队列中存�
 
     - 如果priority属性无法解析为long型数字,则将使用unicode字符串排序。例如："99"和"100"将被排序,因此带有"99"的流文件首先出现,但"A-99"和"A-100"将排序,因此带有"A-100"的流文件首先出现。
 
-![](../image/general/i.png)配置了[负载平衡策略](#负载平衡策略)后,连接除了本地队列外,每个节点都有一个队列。优先排序器将独立地对每个队列中的数据进行排序。
+![](./image/general/i.png)配置了[负载平衡策略](#负载平衡策略)后,连接除了本地队列外,每个节点都有一个队列。优先排序器将独立地对每个队列中的数据进行排序。
 
 #### 更改配置和上下文菜单选项
 
 在两个组件之间建立连接之后,可以更改连接的配置,并且可以将连接移动到新目的地;但是,必须先停止连接任一侧的处理器,然后才能进行配置或目标更改。
 
-![](../image/general/nifi-connection.png)
+![](./image/general/nifi-connection.png)
 
 要更改连接的配置或以其他方式与连接交互,请右键单击连接以打开连接上下文菜单。
 
-![](../image/general/nifi-connection-menu.png)
+![](./image/general/nifi-connection-menu.png)
 
 可以使用以下选项：
 
@@ -885,17 +885,17 @@ NiFi为背压提供两种配置元素。这些阈值表示允许在队列中存�
 
 要向现有连接添加弯曲点(或弯头),只需双击要弯曲点所在位置的连接即可。然后,您可以使用鼠标抓住弯曲点并拖动它,以便以所需的方式弯曲连接。您可以根据需要添加任意数量的弯曲点。您还可以使用鼠标将连接上的标签拖动并移动到任何现有折弯点。要删除折弯点,只需再次双击即可。
 
-![](../image/general/nifi-connection-bend-points.png)
+![](./image/general/nifi-connection-bend-points.png)
 
 ### 处理器验证
 
 在尝试启动处理器之前,确保处理器的配置有效非常重要。状态指示器显示在处理器的左上角。如果处理器无效,指示器将显示黄色警告指示器,并带有感叹号,表示存在问题：
 
-![](../image/general/invalid-processor.png)
+![](./image/general/invalid-processor.png)
 
 在这种情况下,使用鼠标悬停在指示器图标上将提供工具提示,显示处理器的所有验证错误。一旦解决了所有验证错误,状态指示器将变为Stop图标,表示处理器有效并准备启动但当前未运行：
 
-![](../image/general/valid-processor.png)
+![](./image/general/valid-processor.png)
 
 ### 站点到站点(s2s)
 
@@ -951,11 +951,11 @@ NiFi实例可以是站点到站点协议的客户端和服务器,但是,它只�
 
 如果从远程进程组开始拖动连接,则显示的端口将是远程组的输出端口,因为这表示您将从远程实例中提取数据。如果连接在远程进程组上结束,则显示的端口将是远程组的输入端口,因为这意味着您将数据推送到远程实例。
 
-![](../image/general/i.png)如果远程实例配置为使用安全数据传输,您将只看到您有权与之通信的端口。有关配置NiFi以安全运行的信息,请参阅" 系统管理员指南"。
+![](./image/general/i.png)如果远程实例配置为使用安全数据传输,您将只看到您有权与之通信的端口。有关配置NiFi以安全运行的信息,请参阅" 系统管理员指南"。
 
 传输协议：在远程进程组创建或配置对话框中,您可以选择用于站点到站点通信的传输协议,如下图所示：
 
-![](../image/general/configure-remote-process-group.png)
+![](./image/general/configure-remote-process-group.png)
 
 默认情况下,它设置为RAW,它使用专用端口,使用原始套接字通信。如果远程NiFi实例位于仅允许通过HTTP(S)协议进行访问或仅可从特定HTTP代理服务器访问的受限网络中,则HTTP传输协议特别有用。对于通过HTTP代理服务器进行访问,支持BASIC和DIGEST身份验证。
 
@@ -997,7 +997,7 @@ NiFi实例可以是站点到站点协议的客户端和服务器,但是,它只�
 
 数据流应如下所示：
 
-![](../image/general/simple-flow.png)
+![](./image/general/simple-flow.png)
 
 现在请参阅以下有关如何启动和停止数据流的部分。数据流运行时,请务必记下每个处理器正面显示的统计信息(请参阅[处理器的剖析](#处理器的剖析))。
 
@@ -1019,19 +1019,19 @@ NiFi实例可以是站点到站点协议的客户端和服务器,但是,它只�
 
 - 该组件必须没有活动任务。有关活动任务的详细信息,请参阅"解剖......"段下的数据流的监控([处理器的剖析](#处理器的剖析),[进程组的解剖](#进程组的解剖),[远程进程组的解剖](#远程进程组的解剖))。
 
-可以通过选择要启动的所有组件然后单击操作选项板中的Start按钮(![](../image/general/buttonStart.png))或右键单击单个组件并从上下文菜单中选择启动选项来启动组件。
+可以通过选择要启动的所有组件然后单击操作选项板中的Start按钮(![](./image/general/buttonStart.png))或右键单击单个组件并从上下文菜单中选择启动选项来启动组件。
 
 如果启动进程组,则将启动该进程组中的所有组件(包括子进程组),无效或禁用的组件除外。
 
-一旦启动,处理器的状态指示器将变为播放符号(![](../image/general/iconRun.png))。
+一旦启动,处理器的状态指示器将变为播放符号(![](./image/general/iconRun.png))。
 
 ### 停止组件
 
-组件可以在运行时停止。通过右键单击组件并从上下文菜单中单击停止选项,或者通过选择组件并单击操作选项板中的Stop按钮(![](../image/general/buttonStop.png))来停止组件。
+组件可以在运行时停止。通过右键单击组件并从上下文菜单中单击停止选项,或者通过选择组件并单击操作选项板中的Stop按钮(![](./image/general/buttonStop.png))来停止组件。
 
 如果进程组已停止,则将停止进程组(包括子进程组)中的所有组件。
 
-停止后,组件的状态指示器将更改为停止符号(![](../image/general/iconStop.png))。
+停止后,组件的状态指示器将更改为停止符号(![](./image/general/iconStop.png))。
 
 停止组件不会中断其当前正在运行的任务。相反,它会停止安排要执行的新任务。活动任务的数量显示在处理器的右上角(有关详细信息,请参阅[处理器的剖析](#处理器的剖析))。
 
@@ -1039,35 +1039,35 @@ NiFi实例可以是站点到站点协议的客户端和服务器,但是,它只�
 
 启用组件后,即可启动它。例如,用户可以选择在组件仍然是正在组装的数据流的一部分时禁用组件。通常,如果不打算运行组件,则禁用该组件,而不是将其置于停止状态。这有助于区分有意未运行的组件、可能已暂时停止的组件(例如,更改组件的配置),和无意中从未重新启动。
 
-当需要重新启用组件时,可以通过选择组件并单击操作选项板中的Enable按钮(![](../image/general/buttonEnable.png))来启用它。仅当禁用所选组件时,此选项才可用。或者,可以通过选中处理器配置对话框的设置选项卡中的启用选项旁边的复选框或端口的配置对话框来启用组件。
+当需要重新启用组件时,可以通过选择组件并单击操作选项板中的Enable按钮(![](./image/general/buttonEnable.png))来启用它。仅当禁用所选组件时,此选项才可用。或者,可以通过选中处理器配置对话框的设置选项卡中的启用选项旁边的复选框或端口的配置对话框来启用组件。
 
-启用后,组件的状态指示器将更改为Invalid(![](../image/general/iconAlert.png))或Stopped(![](../image/general/iconStop.png)),具体取决于组件是否有效。
+启用后,组件的状态指示器将更改为Invalid(![](./image/general/iconAlert.png))或Stopped(![](./image/general/iconStop.png)),具体取决于组件是否有效。
 
-然后,通过选择组件并单击操作选项板中的Disable按钮(![](../image/general/buttonDisable.png)),或清除处理器配置对话框的设置选项卡中的启用选项旁边的复选框或端口的配置对话框,可以禁用组件。
+然后,通过选择组件并单击操作选项板中的Disable按钮(![](./image/general/buttonDisable.png)),或清除处理器配置对话框的设置选项卡中的启用选项旁边的复选框或端口的配置对话框,可以禁用组件。
 
 只能启用和禁用端口和处理器。
 
 ### 远程流程组传输
 
-远程进程组提供了一种向远程NiFi实例发送数据或从中检索数据的机制。将远程进程组(RPG)添加到画布时,会添加"Transmission Disabled",如左上角的图标(![](../image/general/iconTransmissionInactive.png))所示。当传输被禁用时,可以通过右键单击RPG并单击启用传输菜单项来启用它。这将导致有连接的所有端口开始传输数据。这将导致状态指示灯变为Transmission Enabled图标(![](../image/general/iconTransmissionActive.png))。
+远程进程组提供了一种向远程NiFi实例发送数据或从中检索数据的机制。将远程进程组(RPG)添加到画布时,会添加"Transmission Disabled",如左上角的图标(![](./image/general/iconTransmissionInactive.png))所示。当传输被禁用时,可以通过右键单击RPG并单击启用传输菜单项来启用它。这将导致有连接的所有端口开始传输数据。这将导致状态指示灯变为Transmission Enabled图标(![](./image/general/iconTransmissionActive.png))。
 
-如果与远程进程组通信时出现问题,则可能会在左上角显示警告指示符(![](../image/general/iconAlert.png))。使用鼠标将鼠标悬停在此警告指示器上将提供有关该问题的更多信息。
+如果与远程进程组通信时出现问题,则可能会在左上角显示警告指示符(![](./image/general/iconAlert.png))。使用鼠标将鼠标悬停在此警告指示器上将提供有关该问题的更多信息。
 
 #### 单独端口传输
 
 有时,DFM可能希望仅为远程进程组中的特定端口启用或禁用传输。这可以通过右键单击远程进程组并选择远程端口菜单项来完成。这提供了一个配置对话框,可以从中配置每个端口：
 
-![](../image/general/remote-group-ports-dialog.png)
+![](./image/general/remote-group-ports-dialog.png)
 
 左侧列出了NiFi远程实例允许发送数据的所有输入端口。右侧列出了此实例能够从中提取数据的所有输出端口。如果远程实例正在使用安全通信(NiFi实例的URL以https://,而不是http://)开头,则不会显示远程实例未对此实例提供的任何端口。
 
-![](../image/general/i.png)如果此对话框中未显示预期显示的端口,请确保实例具有适当的权限,并且远程进程组的流是最新的。可以通过关闭端口配置对话框并查看远程进程组的右下角来检查。显示上次刷新流的日期。如果流程似乎已过时,可以通过右键单击远程进程组并选择"刷新流程"来更新它。(有关更多信息,请参阅[远程进程组的解剖](#远程进程组的解剖))。
+![](./image/general/i.png)如果此对话框中未显示预期显示的端口,请确保实例具有适当的权限,并且远程进程组的流是最新的。可以通过关闭端口配置对话框并查看远程进程组的右下角来检查。显示上次刷新流的日期。如果流程似乎已过时,可以通过右键单击远程进程组并选择"刷新流程"来更新它。(有关更多信息,请参阅[远程进程组的解剖](#远程进程组的解剖))。
 
 每个端口都显示端口名称,后跟其描述,当前配置的并发任务数,以及是否将压缩发送到此端口的数据。此信息的左侧是用于打开或关闭端口的开关。那些没有连接到它们的连接的端口显示为灰色：
 
-![](../image/general/remote-port-connection-status.png)
+![](./image/general/remote-port-connection-status.png)
 
-on/off 开关提供了一种机制,可以独立地启用和禁用远程过程组中每个端口的传输。可以通过单击编辑 on/off开关下方的铅笔图标![](../image/general/iconEdit.png)来配置已连接但当前未传输的端口 。单击此图标将允许DFM更改并发任务的数量,以及在向此端口传输数据时是否应使用压缩。
+on/off 开关提供了一种机制,可以独立地启用和禁用远程过程组中每个端口的传输。可以通过单击编辑 on/off开关下方的铅笔图标![](./image/general/iconEdit.png)来配置已连接但当前未传输的端口 。单击此图标将允许DFM更改并发任务的数量,以及在向此端口传输数据时是否应使用压缩。
 
 ## 在DataFlow中导航
 
@@ -1079,9 +1079,9 @@ on/off 开关提供了一种机制,可以独立地启用和禁用远程过程组
 
 NiFI实例的默认URL是 http://hostname:8080/nifi 指向根进程组。在画布上选择组件后,将使用表单中组件的进程组ID和组件ID更新URL http://hostname:8080/nifi/?processGroupId=UUID&componentIds=UUIDs 。在以下屏幕截图中,进程组PG1中的GenerateFlowFile处理器是所选组件：
 
-![](../image/general/component-linking-processor.png)
+![](./image/general/component-linking-processor.png)
 
-![](../image/general/ii.png)支持链接到画布上的多个组件,但限制URL的长度不能超过2000个字符。
+![](./image/general/ii.png)支持链接到画布上的多个组件,但限制URL的长度不能超过2000个字符。
 
 ### 组件对齐
 
@@ -1091,21 +1091,21 @@ NiFi画布上的组件可以对齐,以更精确地排列数据流。为此,首�
 
 以下是在画布上垂直对齐组件的示例。选中所有组件后,右键单击：
 
-![](../image/general/align-vertically-before.png)
+![](./image/general/align-vertically-before.png)
 
 并选择垂直对齐以获得以下结果：
 
-![](../image/general/align-vertically-after.png)
+![](./image/general/align-vertically-after.png)
 
 #### 水平对齐
 
 以下是在画布上水平对齐组件的示例。选中所有组件后,右键单击：
 
-![](../image/general/align-horizontally-before.png)
+![](./image/general/align-horizontally-before.png)
 
 并选择水平对齐以获得以下结果：
 
-![](../image/general/align-horizontally-after.png)
+![](./image/general/align-horizontally-after.png)
 
 ## 监控DataFlow
 
@@ -1115,7 +1115,7 @@ NiFi提供有关DataFlow的大量信息,以便监控其健康状况。状态栏�
 
 NiFi提供有关画布上每个处理器的大量信息。下图显示了处理器的解剖结构：
 
-![](../image/general/processor-anatomy.png)
+![](./image/general/processor-anatomy.png)
 
 该图像概述了以下元素：
 
@@ -1125,13 +1125,13 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 - **状态指示灯**：显示处理器的当前状态。以下指标是可能的：
 
-    - ![](../image/general/iconRun.png) 正在运行：处理器当前正在运行。
+    - ![](./image/general/iconRun.png) 正在运行：处理器当前正在运行。
 
-    - ![](../image/general/iconStop.png) 已停止：处理器有效并已启用但未运行。
+    - ![](./image/general/iconStop.png) 已停止：处理器有效并已启用但未运行。
 
-    - ![](../image/general/iconAlert.png) 无效：处理器已启用但当前无效且无法启动。将鼠标悬停在此图标上将提供工具提示,指示处理器无效的原因。
+    - ![](./image/general/iconAlert.png) 无效：处理器已启用但当前无效且无法启动。将鼠标悬停在此图标上将提供工具提示,指示处理器无效的原因。
 
-    - ![](../image/general/iconDisable.png) 已禁用：处理器未运行,在启用之前无法启动。此状态不表示处理器是否有效。
+    - ![](./image/general/iconDisable.png) 已禁用：处理器未运行,在启用之前无法启动。此状态不表示处理器是否有效。
 
 - **处理器名称**：这是处理器的用户定义名称。默认情况下,Processor的名称与Processor Type相同。在示例中,此值为"Copy to /review"。
 
@@ -1151,7 +1151,7 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 进程组提供了一种机制,用于将组件组合到一个逻辑构造中,以便以更高级别更容易理解的方式组织DataFlow。下图突出显示了构成Process Group解剖结构的不同元素：
 
-![](../image/general/process-group-anatomy.png)
+![](./image/general/process-group-anatomy.png)
 
 过程组由以下元素组成：
 
@@ -1173,17 +1173,17 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 - **组件计数**：组件计数元素提供有关进程组中每种类型的组件数量的信息。以下提供了有关这些图标及其含义的信息：
 
-    - ![](../image/general/iconTransmissionActive.png) **传输端口**：当前配置为将数据传输到远程NiFi实例或从远程NiFi实例提取数据的远程进程组端口的数量。
+    - ![](./image/general/iconTransmissionActive.png) **传输端口**：当前配置为将数据传输到远程NiFi实例或从远程NiFi实例提取数据的远程进程组端口的数量。
 
-    - ![](../image/general/iconTransmissionInactive.png) **非传输端口**：当前连接到此进程组中的组件但当前已禁用其传输的远程进程组端口的数量。
+    - ![](./image/general/iconTransmissionInactive.png) **非传输端口**：当前连接到此进程组中的组件但当前已禁用其传输的远程进程组端口的数量。
 
-    - ![](../image/general/iconRun.png) **运行组件**：当前在此进程组中运行的处理器,输入端口和输出端口的数量。
+    - ![](./image/general/iconRun.png) **运行组件**：当前在此进程组中运行的处理器,输入端口和输出端口的数量。
 
-    - ![](../image/general/iconStop.png) **已停止的组件**：当前未运行但有效且已启用的处理器,输入端口和输出端口的数量。这些组件已准备好启动。
+    - ![](./image/general/iconStop.png) **已停止的组件**：当前未运行但有效且已启用的处理器,输入端口和输出端口的数量。这些组件已准备好启动。
 
-    - ![](../image/general/iconAlert.png) **无效组件**：已启用但当前未处于有效状态的处理器,输入端口和输出端口的数量。这可能是由于配置错误或缺少关系造成的。
+    - ![](./image/general/iconAlert.png) **无效组件**：已启用但当前未处于有效状态的处理器,输入端口和输出端口的数量。这可能是由于配置错误或缺少关系造成的。
 
-    - ![](../image/general/iconDisable.png) **已禁用组件**：当前已禁用的处理器,输入端口和输出端口的数量。这些组件可能有效,也可能无效。如果启动了进程组,则这些组件不会导致任何错误,但不会启动。
+    - ![](./image/general/iconDisable.png) **已禁用组件**：当前已禁用的处理器,输入端口和输出端口的数量。这些组件可能有效,也可能无效。如果启动了进程组,则这些组件不会导致任何错误,但不会启动。
 
 - **版本状态计数**：版本状态计数元素提供有关进程组中有多少版本化进程组的信息。有关更多信息,请参阅版本状态
 
@@ -1193,17 +1193,17 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 创建DataFlow时,通常需要将数据从一个NiFi实例传输到另一个实例。在这种情况下,NiFi的远程实例可以被视为进程组。因此,NiFi提供了远程过程组的概念。从用户界面,远程进程组看起来类似于进程组。但是,不是显示有关远程进程组的内部工作和状态的信息(例如队列大小),而是呈现有关远程进程组的信息与此NiFi实例与远程实例之间发生的交互有关。
 
-![](../image/general/remote-group-anatomy.png)
+![](./image/general/remote-group-anatomy.png)
 
 上图显示了组成远程进程组的不同元素。在这里,我们提供有关所提供信息的图标和详细信息的说明。
 
-- **传输状态**：传输状态指示当前是否启用此NiFi实例与远程实例之间的数据传输。![](../image/general/iconTransmissionActive.png) 如果任何输入端口或输出端口当前配置为发送,则显示的图标将是Transmission Enabled图标( )如果![](../image/general/iconTransmissionInactive.png) 当前连接的所有输入端口和输出端口都已停止,则传输已禁用图标( )。
+- **传输状态**：传输状态指示当前是否启用此NiFi实例与远程实例之间的数据传输。![](./image/general/iconTransmissionActive.png) 如果任何输入端口或输出端口当前配置为发送,则显示的图标将是Transmission Enabled图标( )如果![](./image/general/iconTransmissionInactive.png) 当前连接的所有输入端口和输出端口都已停止,则传输已禁用图标( )。
 
 - **远程实例名称**：这是远程实例报告的NiFi实例的名称。首次创建远程进程组时,在获取此信息之前,此处将显示远程实例的URL。
 
 - **远程实例URL**：这是远程进程组指向的远程实例的URL。将远程进程组添加到画布并且无法更改时,将输入此URL。
 
-- **安全指示器**：此图标指示与远程NiFi实例的通信是否安全。如果与远程实例的通信是安全的,则将通过锁定图标(![](../image/general/iconSecure.png) )指示 。如果通信不安全,将通过未锁定图标指示(![](../image/general/iconNotSecure.png))。如果通信是安全的,则在远程实例的管理员授予访问权限之前,此NiFi实例将无法与远程实例通信。每当将远程进程组添加到画布时,这将自动发起请求,以便在远程实例上创建此NiFi实例的用户。在远程实例上的管理员将用户添加到系统并向用户添加NiFi角色之前,此实例将无法与远程实例通信。如果通信不安全,远程进程组可以从任何人接收数据,并且在NiFi实例之间传输数据时不会对数据进行加密。
+- **安全指示器**：此图标指示与远程NiFi实例的通信是否安全。如果与远程实例的通信是安全的,则将通过锁定图标(![](./image/general/iconSecure.png) )指示 。如果通信不安全,将通过未锁定图标指示(![](./image/general/iconNotSecure.png))。如果通信是安全的,则在远程实例的管理员授予访问权限之前,此NiFi实例将无法与远程实例通信。每当将远程进程组添加到画布时,这将自动发起请求,以便在远程实例上创建此NiFi实例的用户。在远程实例上的管理员将用户添加到系统并向用户添加NiFi角色之前,此实例将无法与远程实例通信。如果通信不安全,远程进程组可以从任何人接收数据,并且在NiFi实例之间传输数据时不会对数据进行加密。
 
 - **5分钟统计信息**：显示远程进程组的两个统计信息：已发送和已接收。这两种格式都是count size格式,其中count是在前五分钟内发送或接收的FlowFiles的数量,size是这些FlowFiles内容的总大小。
 
@@ -1215,7 +1215,7 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 必要时可以查看连接中排队的FlowFiles。队列列表通过List queueConnection的上下文菜单打开。该列表将根据配置的优先级返回活动队列中的前100个FlowFiles。即使源和目标正在运行,也可以执行列表。
 
-此外,单击最左侧列中的Details按钮(![](../image/general/iconDetails.png))可以查看列表中Flowfile的详细信息。从这里,可以使用FlowFile详细信息和属性以及用于下载或查看内容的按钮。仅在nifi.content.viewer.url已配置内容时才能查看内容。如果Connection的源或目标正在运行,则所需的FlowFile可能不再位于活动队列中。
+此外,单击最左侧列中的Details按钮(![](./image/general/iconDetails.png))可以查看列表中Flowfile的详细信息。从这里,可以使用FlowFile详细信息和属性以及用于下载或查看内容的按钮。仅在nifi.content.viewer.url已配置内容时才能查看内容。如果Connection的源或目标正在运行,则所需的FlowFile可能不再位于活动队列中。
 
 必要时,还可以删除连接中排队的FlowFiles。通过Empty queueConnection的上下文菜单启动FlowFiles的delete。如果源和目标正在运行,也可以执行此操作。
 
@@ -1225,11 +1225,11 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 通过从全局菜单中选择摘要来打开摘要页面。这将打开摘要表对话框：
 
-![](../image/general/summary-table.png)
+![](./image/general/summary-table.png)
 
 此对话框提供有关画布上每个组件的大量信息。下面,我们在对话框中注释了不同的元素,以便更容易地讨论对话框。
 
-![](../image/general/summary-annotated.png)
+![](./image/general/summary-annotated.png)
 
 摘要页面主要由一个表组成,该表提供有关画布上每个组件的信息。此表上方是一组五个选项卡,可用于查看不同类型的组件。表中提供的信息与为画布上的每个组件提供的信息相同。可以通过单击列的标题对表中的每个列进行排序。有关详细上显示的类型的信息,请参见[处理器的剖析](#处理器的剖析),一个[进程组的剖析](#进程组的剖析),和一个[远程进程组的剖析](#远程进程组的剖析)。
 
@@ -1257,7 +1257,7 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 存储的历史信息量可在NiFi属性中配置,但默认为24 hours。有关特定配置信息,请参阅[系统管理员指南](./AdminGuide)的[组件状态存储库](./AdminGuide#组件状态存储库)。打开状态历史记录对话框时,它会提供历史统计信息的图表：
 
-![](../image/general/stats-history.png)
+![](./image/general/stats-history.png)
 
 对话框的左侧提供有关统计信息所用组件的信息,以及绘制统计信息的文本表示。左侧提供以下信息：
 
@@ -1275,7 +1275,7 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 - **Min/Max/Mean**：显示最小值,最大值和平均值(算术平均值或平均值)。如果选择了任何时间范围,这些值仅基于所选时间范围。如果对此NiFi实例进行聚类,则会为整个集群以及每个单独节点显示这些值。在集群环境中,每个节点以不同的颜色显示。这也用作图形的图例,显示图形中显示的每个节点的颜色。将鼠标悬停在集群上或图例中的其中一个节点上也会使相应的节点在图形中变为粗体。
 
-对话框的右侧提供了下表中要呈现的不同类型度量标准的下拉列表。顶部图形较大,以便提供更容易阅读的信息呈现。在该图的右下角是一个小手柄(![](../image/general/iconResize.png)),可以拖动它来调整图形的大小。也可以拖动对话框的空白区域以移动整个对话框。
+对话框的右侧提供了下表中要呈现的不同类型度量标准的下拉列表。顶部图形较大,以便提供更容易阅读的信息呈现。在该图的右下角是一个小手柄(![](./image/general/iconResize.png)),可以拖动它来调整图形的大小。也可以拖动对话框的空白区域以移动整个对话框。
 
 底部图表更短,并提供选择时间范围的能力。在此处选择时间范围将使顶部图形仅显示所选的时间范围,但是以更详细的方式显示。此外,这将导致重新计算左侧的最小值/最大值/平均值。通过在图形上拖动矩形创建选择后,双击所选部分将使选择在垂直方向上完全展开(即,它将选择此时间范围内的所有值)。单击底部图形而不拖动将删除选择。
 
@@ -1287,35 +1287,35 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 要将NiFi连接到注册表,请从全局菜单中选择控制器设置。
 
-![](../image/general/controller-settings-selection.png)
+![](./image/general/controller-settings-selection.png)
 
 这将显示NiFi设置窗口。选择注册表客户端选项卡,然后单击右上角的+按钮以注册新的注册表客户端。
 
-![](../image/general/registry-clients-tab.png)
+![](./image/general/registry-clients-tab.png)
 
 在添加注册表客户端窗口中,提供名称和URL。
 
-![](../image/general/add-registry-client.png)
+![](./image/general/add-registry-client.png)
 
 单击"Add"以完成注册。
 
-![](../image/general/registry-client-added.png)
+![](./image/general/registry-client-added.png)
 
-![](../image/general/ii.png)版本化流程在注册表桶中存储和组织。注册管理员配置的存储桶策略和特权限定了用户可以从中导入版本化流的哪些存储桶以及用户可以将版本化流存储到哪些存储桶。有关存储桶策略和特权的信息可以在NiFi注册表用户指南(https://nifi.apache.org/docs/nifi-registry-docs/html/user-guide.html)中找到。
+![](./image/general/ii.png)版本化流程在注册表桶中存储和组织。注册管理员配置的存储桶策略和特权限定了用户可以从中导入版本化流的哪些存储桶以及用户可以将版本化流存储到哪些存储桶。有关存储桶策略和特权的信息可以在NiFi注册表用户指南(https://nifi.apache.org/docs/nifi-registry-docs/html/user-guide.html)中找到。
 
 ### 版本国家
 
 版本化的进程组存在以下状态：
 
-- ![](../image/general/iconUpToDate.png) **Up to date**：流程的版本是最新的。
+- ![](./image/general/iconUpToDate.png) **Up to date**：流程的版本是最新的。
 
-- ![](../image/general/iconLocallyModified.png) **Locally modified**：已进行本地更改。
+- ![](./image/general/iconLocallyModified.png) **Locally modified**：已进行本地更改。
 
-- ![](../image/general/iconStale.png) **Stale**：可以使用更新版本的流程。
+- ![](./image/general/iconStale.png) **Stale**：可以使用更新版本的流程。
 
-- ![](../image/general/iconLocallyModifiedStale.png) **Locally modified and stale**：已进行本地更改,并且可以使用更新版本的流。
+- ![](./image/general/iconLocallyModifiedStale.png) **Locally modified and stale**：已进行本地更改,并且可以使用更新版本的流。
 
-- ![](../image/general/iconSyncFailure.png) **Sync failure**：无法将流与注册表同步。
+- ![](./image/general/iconSyncFailure.png) **Sync failure**：无法将流与注册表同步。
 
 显示版本状态信息：
 
@@ -1325,57 +1325,57 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 3. 在UI顶部的状态栏中,用于根进程组中包含的版本化流。
 
-![](../image/general/version-states-display.png)
+![](./image/general/version-states-display.png)
 
 版本状态信息也显示在摘要页面的进程组选项卡中。
 
-![](../image/general/version-state-summary-page.png)
+![](./image/general/version-state-summary-page.png)
 
-![](../image/general/ii.png)要查看最新版本状态,可能需要右键单击NiFi画布并从上下文菜单中选择刷新
+![](./image/general/ii.png)要查看最新版本状态,可能需要右键单击NiFi画布并从上下文菜单中选择刷新
 
 ### 导入版本化流程
 
 当NiFi实例连接到注册表时,"Import"链接将出现在添加进程组对话框中。
 
-![](../image/general/add-process-group-import.png)
+![](./image/general/add-process-group-import.png)
 
 选择链接将打开导入版本对话框。
 
-![](../image/general/import-version-dialog.png)
+![](./image/general/import-version-dialog.png)
 
 已连接的注册表将显示为注册表下拉菜单中的选项。对于选定的注册表,用户有权访问的存储桶将显示为存储桶下拉菜单中的选项。所选存储桶中的流的名称将显示为名称下拉菜单中的选项。选择要导入的流的所需版本,然后为要放置在画布上的数据流选择"Import"
 
-![](../image/general/versioned-flow-imported.png)
+![](./image/general/versioned-flow-imported.png)
 
-由于此示例中导入的版本是最新版本(MySQL CDC,版本3),因此版本化进程组的状态为"最新"(![](../image/general/iconUpToDate.png))。如果导入的版本是旧版本,则状态将为"Stale"(![](../image/general/iconStale.png))。
+由于此示例中导入的版本是最新版本(MySQL CDC,版本3),因此版本化进程组的状态为"最新"(![](./image/general/iconUpToDate.png))。如果导入的版本是旧版本,则状态将为"Stale"(![](./image/general/iconStale.png))。
 
 ### 启动版本控制
 
 要将进程组置于版本控制之下,请右键单击进程组,然后在上下文菜单中选择"版本→启动版本控制"。
 
-![](../image/general/start-version-control.png)
+![](./image/general/start-version-control.png)
 
 在Save Flow Version窗口中,选择Registry and Bucket并输入Flow的名称。如果需要,请为"描述"和"注释"字段添加内容。
 
-![](../image/general/save-flow-version-dialog.png)
+![](./image/general/save-flow-version-dialog.png)
 
 选择保存并保存流的版本1。
 
-![](../image/general/versioned-process-group.png)
+![](./image/general/versioned-process-group.png)
 
-作为流的第一个和最新版本,版本化进程组的状态为"Up to date"(![](../image/general/iconUpToDate.png))。
+作为流的第一个和最新版本,版本化进程组的状态为"Up to date"(![](./image/general/iconUpToDate.png))。
 
-![](../image/general/ii.png)根进程组不能置于版本控制之下。
+![](./image/general/ii.png)根进程组不能置于版本控制之下。
 
 ### 管理本地更改
 
-当对版本化的进程组进行更改时,组件的状态将更新为"Locally modified"(![](../image/general/iconLocallyModified.png))。DFM可以显示,还原或提交本地更改。右键单击进程组时,可以在上下文菜单中选择这些选项：
+当对版本化的进程组进行更改时,组件的状态将更新为"Locally modified"(![](./image/general/iconLocallyModified.png))。DFM可以显示,还原或提交本地更改。右键单击进程组时,可以在上下文菜单中选择这些选项：
 
-![](../image/general/local-changes-pg-selected.png)
+![](./image/general/local-changes-pg-selected.png)
 
 或者右键单击进程组内的画布：
 
-![](../image/general/local-changes-pg-inside.png)
+![](./image/general/local-changes-pg-inside.png)
 
 以下操作不被视为本地更改：
 
@@ -1391,69 +1391,69 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 - 创建,修改或删除变量
 
-![](../image/general/i.png)创建变量不会触发本地更改,因为创建变量本身并未改变流程处理的任何内容。必须创建或修改使用新变量的组件,这将触发本地更改。修改变量不会触发本地更改,因为变量值在每个环境中都是不同的。导入版本化流时,假定需要一次性操作来设置特定于给定环境的变量。删除变量不会触发本地更改,因为需要修改引用该变量的组件,这将触发本地更改。
+![](./image/general/i.png)创建变量不会触发本地更改,因为创建变量本身并未改变流程处理的任何内容。必须创建或修改使用新变量的组件,这将触发本地更改。修改变量不会触发本地更改,因为变量值在每个环境中都是不同的。导入版本化流时,假定需要一次性操作来设置特定于给定环境的变量。删除变量不会触发本地更改,因为需要修改引用该变量的组件,这将触发本地更改。
 
-![](../image/general/ii.png)变量不支持敏感值,并且在对流程组进行版本控制时将包含变量。有关更多信息,请参阅版本化流程中的变量。
+![](./image/general/ii.png)变量不支持敏感值,并且在对流程组进行版本控制时将包含变量。有关更多信息,请参阅版本化流程中的变量。
 
 #### 显示本地更改
 
 通过从上下文菜单中选择"Version→Show local changes",可以在显示本地更改对话框中查看对版本化过程组所做的本地更改。
 
-![](../image/general/show-local-changes-dialog.png)
+![](./image/general/show-local-changes-dialog.png)
 
-您可以通过选择去其行中的![](../image/general/iconGoTo.png)图标来导航到组件。
+您可以通过选择去其行中的![](./image/general/iconGoTo.png)图标来导航到组件。
 
-![](../image/general/i.png)如[管理本地更改](#管理本地更改)部分中所述,有些例外可以检查哪些操作是本地更改。此外,对同一属性的多次更改将仅显示为列表中的一个更改,因为更改是通过区分进程组的当前状态和"显示本地更改"对话框中记录的进程组的已保存版本来确定的。
+![](./image/general/i.png)如[管理本地更改](#管理本地更改)部分中所述,有些例外可以检查哪些操作是本地更改。此外,对同一属性的多次更改将仅显示为列表中的一个更改,因为更改是通过区分进程组的当前状态和"显示本地更改"对话框中记录的进程组的已保存版本来确定的。
 
 #### 还原本地更改
 
 通过从上下文菜单中选择"Version→Revert local changes",还原对版本化进​​程组所做的本地更改。还原本地更改对话框显示DFM在启动还原之前要查看和考虑的本地更改列表。选择"Revert"以删除所有更改。
 
-![](../image/general/revert-local-changes-dialog.png)
+![](./image/general/revert-local-changes-dialog.png)
 
-您可以通过选择去其行中的"![](../image/general/iconGoTo.png)"图标来导航到组件。
+您可以通过选择去其行中的"![](./image/general/iconGoTo.png)"图标来导航到组件。
 
-![](../image/general/i.png)如[管理本地更改](#管理本地更改)部分中所述,有些例外可以将可更改的本地更改作为操作。此外,对同一属性的多次更改将仅显示为列表中的一个更改,因为更改是通过区分进程组的当前状态和"还原本地更改"对话框中记录的进程组的已保存版本来确定的。
+![](./image/general/i.png)如[管理本地更改](#管理本地更改)部分中所述,有些例外可以将可更改的本地更改作为操作。此外,对同一属性的多次更改将仅显示为列表中的一个更改,因为更改是通过区分进程组的当前状态和"还原本地更改"对话框中记录的进程组的已保存版本来确定的。
 
 #### 提交本地更改
 
 要提交和保存流版本,请从上下文菜单中选择"Version→Commit local changes"。在保存流版本对话框中,根据需要添加注释,然后选择"Save"。
 
-![](../image/general/save-flow-version-commit.png)
+![](./image/general/save-flow-version-commit.png)
 
 ### 更改版本
 
 要更改流的版本,请右键单击版本化的流程组,然后选择"Version→Change version"。
 
-![](../image/general/change-version.png)
+![](./image/general/change-version.png)
 
 在更改版本对话框中,选择所需的版本并选择"Change"：
 
-![](../image/general/change-version-dialog.png)
+![](./image/general/change-version-dialog.png)
 
 流的版本已更改：
 
-![](../image/general/flow-version-changed.png)
+![](./image/general/flow-version-changed.png)
 
 在所示示例中,版本化流程从较旧版本升级到较新版本。但是,版本化流程也可以回滚到旧版本。
 
-![](../image/general/i.png)要使"更改版本"成为可用选择,需要还原对进程组的本地更改。
+![](./image/general/i.png)要使"更改版本"成为可用选择,需要还原对进程组的本地更改。
 
 ### 停止版本控制
 
 要停止对流的版本控制,请右键单击版本化的进程组,然后选择"Version→Stop version control"：
 
-![](../image/general/stop-version-control.png)
+![](./image/general/stop-version-control.png)
 
 在停止版本控制对话框中,选择"Disconnect"。
 
-![](../image/general/stop-version-control-dialog.png)
+![](./image/general/stop-version-control-dialog.png)
 
 确认从版本控制中删除进程组。
 
-![](../image/general/disconnect-dialog.png)
+![](./image/general/disconnect-dialog.png)
 
-![](../image/general/process-group-version-control-stopped.png)
+![](./image/general/process-group-version-control-stopped.png)
 
 ### 嵌套版本化流程
 
@@ -1463,35 +1463,35 @@ NiFi提供有关画布上每个处理器的大量信息。下图显示了处理�
 
 当进程组置于版本控制之下时,会包含变量。如果导入的版本化流引用了未在版本化进程组中定义的变量,则在变量存在时保留引用。如果引用的变量不存在,则将在进程组中定义变量的副本。为了说明,假设变量"RPG_Var"在根进程组中定义：
 
-![](../image/general/rpg-variable.png)
+![](./image/general/rpg-variable.png)
 
 创建进程组PG1：
 
-![](../image/general/PG1_process_group.png)
+![](./image/general/PG1_process_group.png)
 
 PG1中的GetFile处理器引用变量"RPG_Var"：
 
-![](../image/general/PG1_variable_ref_1.png)
+![](./image/general/PG1_variable_ref_1.png)
 
 PG1保存为版本化流程：
 
-![](../image/general/PG1_versioned_flow.png)
+![](./image/general/PG1_versioned_flow.png)
 
 如果PG1版本化流程导入到同一个NiFi实例中：
 
-![](../image/general/PG1_imported_same.png)
+![](./image/general/PG1_imported_same.png)
 
 添加的GetFile处理器还将引用根进程组中存在的"RPG_Var"变量：
 
-![](../image/general/PG1_variable_ref_2.png)
+![](./image/general/PG1_variable_ref_2.png)
 
 如果PG1版本化流程导入到不存在"RPG_Var"的不同NiFi实例中：
 
-![](../image/general/PG1_imported_diff.png)
+![](./image/general/PG1_imported_diff.png)
 
 在PG1进程组中创建"RPG_Var"变量：
 
-![](../image/general/PG1_variable_ref_PG.png)
+![](./image/general/PG1_variable_ref_PG.png)
 
 ### 版本化流程中受限制的组件
 
@@ -1501,63 +1501,63 @@ PG1保存为版本化流程：
 
 - "sys_admin"可以访问所有受限制的组件。
 
-![](../image/general/sys_admin-restricted-component-access-policy.png)
+![](./image/general/sys_admin-restricted-component-access-policy.png)
 
 - "test_user"可以访问需要"read filesystem"和"write filesystem"的受限组件。
 
-![](../image/general/test_user-restricted-component-read-filesystem.png)
+![](./image/general/test_user-restricted-component-read-filesystem.png)
 
-![](../image/general/test_user-restricted-component-write-filesystem.png)
+![](./image/general/test_user-restricted-component-write-filesystem.png)
 
 #### 根进程组中创建的受限制的控制器服务
 
 在第一个示例中,sys_admin在根进程组级别创建KeytabCredentialsService控制器服务。
 
-![](../image/general/keytabCredentialsService-rpg.png)
+![](./image/general/keytabCredentialsService-rpg.png)
 
 KeytabCredentialService控制器服务是一个受限制的组件,需要"access keytab"权限：
 
-![](../image/general/keytabcredentialsservice-permissions.png)
+![](./image/general/keytabcredentialsservice-permissions.png)
 
 Sys_admin使用GetFile和PutHDFS处理器创建一个包含流的进程组ABC：
 
-![](../image/general/abc-restricted-component-flow.png)
+![](./image/general/abc-restricted-component-flow.png)
 
 GetFile处理器是一个受限制的组件,需要"read filesystem"和"write filesystem"权限：
 
-![](../image/general/getfile-permissions.png)
+![](./image/general/getfile-permissions.png)
 
 PutHDFS是一个受限制的组件,需要"read filesystem"权限：
 
-![](../image/general/puthdfs-permissions.png)
+![](./image/general/puthdfs-permissions.png)
 
 PutHDFS处理器配置为使用根进程组级别KeytabCredentialsService控制器服务：
 
-![](../image/general/puthdfs-properties.png)
+![](./image/general/puthdfs-properties.png)
 
 Sys_admin将进程组保存为版本化流：
 
-![](../image/general/abc-versioned-flow.png)
+![](./image/general/abc-versioned-flow.png)
 
 Test_user通过删除KeytabCredentialsService控制器服务来更改流程：
 
-![](../image/general/puthdfs-no-kerberosCS.png)
+![](./image/general/puthdfs-no-kerberosCS.png)
 
 如果test_user选择还原此更改：
 
-![](../image/general/test_user-revert-local-changes.png)
+![](./image/general/test_user-revert-local-changes.png)
 
 恢复成功：
 
-![](../image/general/revert-success.png)
+![](./image/general/revert-success.png)
 
 此外,如果test_user选择导入ABC版本化流程：
 
-![](../image/general/test_user-import-abc-flow.png)
+![](./image/general/test_user-import-abc-flow.png)
 
 导入成功：
 
-![](../image/general/test_user-import-success.png)
+![](./image/general/test_user-import-success.png)
 
 #### 流程组中创建的受限制的控制器服务
 
@@ -1565,37 +1565,37 @@ Test_user通过删除KeytabCredentialsService控制器服务来更改流程：
 
 Sys_admin创建一个进程组XYZ：
 
-![](../image/general/xyz-process-group.png)
+![](./image/general/xyz-process-group.png)
 
 Sys_admin在进程组级别创建KeytabCredentialsService控制器服务：
 
-![](../image/general/keytabCredentialsService-pg.png)
+![](./image/general/keytabCredentialsService-pg.png)
 
 在进程组中创建相同的GetFile和PutHDFS流：
 
-![](../image/general/xyz-flow.png)
+![](./image/general/xyz-flow.png)
 
 但是,PutHDFS现在引用了进程组级控制器服务：
 
-![](../image/general/puthdfs-properties_2.png)
+![](./image/general/puthdfs-properties_2.png)
 
 Sys_admin将进程组保存为版本化流。
 
 Test_user通过删除KeytabCredentialsService控制器服务来更改流。但是,使用此配置,如果test_user尝试还原此更改：
 
-![](../image/general/test_user-revert-local-changes-2.png)
+![](./image/general/test_user-revert-local-changes-2.png)
 
 恢复不成功,因为test_user没有KeytabCredentialService控制器服务所需的"访问密钥表"权限：
 
-![](../image/general/revert-failure.png)
+![](./image/general/revert-failure.png)
 
 同样,如果test_user尝试导入XYZ版本化流程：
 
-![](../image/general/test_user-import-xyz-flow.png)
+![](./image/general/test_user-import-xyz-flow.png)
 
 导入失败：
 
-![](../image/general/import-xyz-flow-fails.png)
+![](./image/general/import-xyz-flow-fails.png)
 
 ## 模板
 
@@ -1605,23 +1605,23 @@ DFM能够使用NiFi构建非常大且复杂的DataFlow。这是通过使用基�
 
 ### 创建模板
 
-要创建模板,请选择要作为模板一部分的组件,然后单击 操作选项板中的 Create Template(![](../image/general/iconNewTemplate.png))按钮(有关操作选项板的更多信息,请参阅[NiFi用户界面](#NiFi用户界面))。
+要创建模板,请选择要作为模板一部分的组件,然后单击 操作选项板中的 Create Template(![](./image/general/iconNewTemplate.png))按钮(有关操作选项板的更多信息,请参阅[NiFi用户界面](#NiFi用户界面))。
 
 单击此按钮而不选择任何内容将创建一个包含当前进程组的所有内容的模板。这意味着在根进程组上创建一个没有选择任何内容的模板将创建一个包含整个流的模板。
 
 单击此按钮后,将提示用户提供模板的名称和可选说明。每个模板都必须具有唯一的名称。输入名称和可选说明后,单击该Create按钮将生成模板并通知用户模板已成功创建,或者如果由于某种原因无法创建模板,则提供相应的错误消息。
 
-![](../image/general/i.png)请务必注意,如果任何Templated处理器具有敏感属性(例如密码),则该敏感属性的值不会包含在模板中。因此,在将模板拖动到画布上时,如果新创建的处理器缺少其敏感属性的值,则它们可能无效。此外,如果连接的源或目标未包含在模板中,则在制作模板时选择的任何连接都不包含在模板中。
+![](./image/general/i.png)请务必注意,如果任何Templated处理器具有敏感属性(例如密码),则该敏感属性的值不会包含在模板中。因此,在将模板拖动到画布上时,如果新创建的处理器缺少其敏感属性的值,则它们可能无效。此外,如果连接的源或目标未包含在模板中,则在制作模板时选择的任何连接都不包含在模板中。
 
 ### 导入模板
 
 在收到从另一个NiFi导出的模板后,使用该模板所需的第一步是将模板导入到此NiFi实例中。您可以将模板导入到具有相应授权的任何Process Group。
 
-在Operate Palette中,单击Upload Template(![](../image/general/iconUploadTemplate.png))按钮(有关Operate Palette的更多信息,请参阅NiFi用户界面)。这将显示"上载模板"对话框。单击查找图标并使用文件选择对话框选择要上载的模板文件。选择文件,然后单击Upload。单击该Upload按钮将尝试将模板导入此NiFi实例。如果导入模板时出现问题,上载模板对话框将更新为显示成功或错误消息。
+在Operate Palette中,单击Upload Template(![](./image/general/iconUploadTemplate.png))按钮(有关Operate Palette的更多信息,请参阅NiFi用户界面)。这将显示"上载模板"对话框。单击查找图标并使用文件选择对话框选择要上载的模板文件。选择文件,然后单击Upload。单击该Upload按钮将尝试将模板导入此NiFi实例。如果导入模板时出现问题,上载模板对话框将更新为显示成功或错误消息。
 
 #### 实例化模板
 
-创建模板(请参阅创建模板)或导入模板(请参阅导入模板)后,就可以将其实例化,或添加到画布中。这是通过将模板图标(![](../image/general/iconTemplate.png))从组件工具栏(请参阅[NiFi用户界面](#NiFi用户界面))拖到画布上来完成的。
+创建模板(请参阅创建模板)或导入模板(请参阅导入模板)后,就可以将其实例化,或添加到画布中。这是通过将模板图标(![](./image/general/iconTemplate.png))从组件工具栏(请参阅[NiFi用户界面](#NiFi用户界面))拖到画布上来完成的。
 
 这将显示一个对话框,用于选择要添加到画布的模板。选择要添加的模板后,只需单击Add按钮即可。模板将添加到画布中,模板的左上角放置在用户放置模板图标的任何位置。
 
@@ -1633,11 +1633,11 @@ NiFi模板最强大的功能之一是能够轻松地将模板导出到XML文件�
 
 #### 导出模板
 
-创建模板后,可以在"模板管理"页面中与其他人共享。要导出模板,请在表中找到模板。如果有几个可用的话,右上角的过滤器可用于帮助查找相应的模板。然后单击Download按钮(![](../image/general/iconDownloadTemplate.png))。这会将模板作为XML文件下载到您的计算机。然后可以将此XML文件发送给其他人并导入到其他NiFi实例中(请参阅导入模板)。
+创建模板后,可以在"模板管理"页面中与其他人共享。要导出模板,请在表中找到模板。如果有几个可用的话,右上角的过滤器可用于帮助查找相应的模板。然后单击Download按钮(![](./image/general/iconDownloadTemplate.png))。这会将模板作为XML文件下载到您的计算机。然后可以将此XML文件发送给其他人并导入到其他NiFi实例中(请参阅导入模板)。
 
 #### 删除模板
 
-一旦确定不再需要模板,就可以从模板管理页面轻松删除它。要删除模板,请在表格中找到它(如果有几个可用,可以使用右上角的过滤器查找相应的模板)并单击Delete按钮(![](../image/general/iconDelete.png))。这将提示确认。确认删除后,模板将从此表中删除,不再可用于添加到画布。
+一旦确定不再需要模板,就可以从模板管理页面轻松删除它。要删除模板,请在表格中找到它(如果有几个可用,可以使用右上角的过滤器查找相应的模板)并单击Delete按钮(![](./image/general/iconDelete.png))。这将提示确认。确认删除后,模板将从此表中删除,不再可用于添加到画布。
 
 ## 数据来源
 
@@ -1647,7 +1647,7 @@ NiFi模板最强大的功能之一是能够轻松地将模板导出到XML文件�
 
 启用授权后,访问Data Provenance信息需要"查询出处"全局策略以及生成事件的组件的"查看出处"组件策略。此外,访问包含FlowFile属性和内容的事件详细信息需要为生成事件的组件"查看数据"组件策略。
 
-![](../image/general/provenance-annotated.png)
+![](./image/general/provenance-annotated.png)
 
 ### 种源事件
 
@@ -1680,55 +1680,55 @@ NiFi模板最强大的功能之一是能够轻松地将模板导出到XML文件�
 
 在Data Provenance页面中执行的最常见任务之一是搜索给定的FlowFile以确定它发生了什么。为此,请单击数据源页面右上角的Search按钮。这将打开一个对话框窗口,其中包含用户可以为搜索定义的参数。参数包括感兴趣的处理事件,区分FlowFile或产生事件的组件的特征,搜索的时间范围以及FlowFile的大小。
 
-![](../image/general/search-events.png)
+![](./image/general/search-events.png)
 
 例如,要确定是否收到特定的FlowFile,请搜索"RECEIVE"的事件类型,并包含FlowFile的标识符,例如其uuid或文件名。星号(*)可用作任意数量字符的通配符。因此,要确定在2015年1月6日的任何时间是否收到了文件名中任何位置带有"ABC"的FlowFile,可以执行下图所示的搜索：
 
-![](../image/general/search-receive-event-abc.png)
+![](./image/general/search-receive-event-abc.png)
 
 ### Event详情
 
-在Data Provenance页面的最左侧列中View Details,每个事件都有一个图标(![](../image/general/iconDetails.png))。单击此按钮将打开一个对话框窗口,其中包含三个选项卡：详细信息,属性和内容。
+在Data Provenance页面的最左侧列中View Details,每个事件都有一个图标(![](./image/general/iconDetails.png))。单击此按钮将打开一个对话框窗口,其中包含三个选项卡：详细信息,属性和内容。
 
-![](../image/general/event-details.png)
+![](./image/general/event-details.png)
 
 详细信息选项卡显示有关事件的各种详细信息,例如事件发生的时间,事件的类型以及生成事件的组件。显示的信息将根据事件类型而有所不同。此选项卡还显示有关已处理的FlowFile的信息。除了显示在详细信息选项卡左侧的FlowFile的UUID之外,与详细信息选项卡右侧显示的与该FlowFile相关的任何父文件或子级FlowFile的UUID也显示在该详细信息选项卡的右侧。
 
 属性选项卡显示流程中该点上FlowFile中存在的属性。为了仅查看由于处理事件而修改的属性,用户可以选择属性选项卡右上角仅显示已修改旁边的复选框。
 
-![](../image/general/event-attributes.png)
+![](./image/general/event-attributes.png)
 
 ### 重播FlowFile
 
 DFM可能需要在数据流中的某个点检查FlowFile的内容,以确保按预期处理它。如果没有正确处理,DFM可能需要调整数据流并再次重放FlowFile。查看详细信息对话框窗口的内容选项卡是DFM可以执行这些操作的位置。"内容"选项卡显示有关FlowFile内容的信息,例如其在内容存储库中的位置及其大小。此外,用户可以在此处单击Download按钮以下载流程中此时存在的FlowFile内容的副本。用户还可以单击该Submit按钮以在流程中的此时重放FlowFile。点击后Submit,FlowFile被发送到为生成此处理事件的组件提供的连接。
 
-![](../image/general/event-content.png)
+![](./image/general/event-content.png)
 
 ### 查看FlowFile Lineage
 
-查看FlowFile在数据流中采用的谱系或路径的图形表示通常很有用。要查看FlowFile的谱系,请单击![](../image/general/iconLineage.png)Data Provenance表的最右侧列中的"Show Lineage"图标。这将打开一个图形,显示FlowFile(![](../image/general/lineage-flowfile.png))和已发生的各种处理事件。所选事件将以红色突出显示。它可以右键单击或任何事件双击看到事件的详细信息(参见事件的详细信息)。要查看谱系如何随时间演变,请单击窗口左下角的滑块并将其向左移动以查看数据流中较早阶段的谱系状态。
+查看FlowFile在数据流中采用的谱系或路径的图形表示通常很有用。要查看FlowFile的谱系,请单击![](./image/general/iconLineage.png)Data Provenance表的最右侧列中的"Show Lineage"图标。这将打开一个图形,显示FlowFile(![](./image/general/lineage-flowfile.png))和已发生的各种处理事件。所选事件将以红色突出显示。它可以右键单击或任何事件双击看到事件的详细信息(参见事件的详细信息)。要查看谱系如何随时间演变,请单击窗口左下角的滑块并将其向左移动以查看数据流中较早阶段的谱系状态。
 
-![](../image/general/lineage-graph-annotated.png)
+![](./image/general/lineage-graph-annotated.png)
 
 #### 找到Parents
 
 有时,用户可能需要跟踪从中生成另一个FlowFile的原始FlowFile。例如,当发生FORK或CLONE事件时,NiFi会跟踪生成其他FlowFiles的父FlowFile,并且可以在Lineage中找到父FlowFile。右键单击沿袭图中的事件,然后从上下文菜单中选择"查找父项"。
 
-![](../image/general/find-parents.png)
+![](./image/general/find-parents.png)
 
 选择"Find parents"后,将重新绘制图形以显示父FlowFile及其谱系以及子项及其谱系。
 
-![](../image/general/parent-found.png)
+![](./image/general/parent-found.png)
 
 #### 扩展活动
 
 与查找父FlowFile有用的方式相同,用户可能还想确定从给定FlowFile生成的子项。要执行此操作,请右键单击沿袭图中的事件,然后从上下文菜单中选择"展开"。
 
-![](../image/general/expand-event.png)
+![](./image/general/expand-event.png)
 
 选择"Expand"后,将重新绘制图形以显示子项及其谱系。
 
-![](../image/general/expanded-events.png)
+![](./image/general/expanded-events.png)
 
 ### 提前编写源代码存储库
 
@@ -1780,7 +1780,7 @@ Persistent和Write Ahead配置都支持许多相同的系统属性,但是为Pers
 
 虽然操作系统级访问控制可以提供对存储库中写入磁盘的起源数据的一些安全性,但有些情况下数据可能是敏感的,合规性和法规要求存在,或者NiFi在不受直接控制的硬件上运行。组织(云等)。在这种情况下,originance存储库允许在将所有数据持久保存到磁盘之前对其进行加密。
 
-![](../image/general/ii.png)性能
+![](./image/general/ii.png)性能
 加密源文件库的当前实现拦截了记录编写者和读者WriteAheadProvenanceRepository,它提供了对遗留的显着性能改进PersistentProvenanceRepository并使用该AES/GCM算法,该算法在商品硬件上相当高效。在大多数情况下,增加的成本并不显着(在每秒数百个来源事件的流量上不明显,在每秒数千个 - 数万个事件的流量上适度显着)。但是,管理员应该执行自己的风险评估和性能分析,并决定如何继续前进。目前不建议在加密/未加密的实现之间来回切换。
 
 #### 它是什么？
@@ -1824,7 +1824,7 @@ KEY5 = c6FzfnKm7UR7xqI2NFpZ + fEKBfSU7 + 1NvRw + XWQ9U39MONWqk5gvoyOCdFR1kUgeg46
 
 初始化存储库后,所有源项事件记录写入操作将根据配置的模式编写器(EventIdFirstSchemaRecordWriter默认情况下WriteAheadProvenanceRepository)序列化为a byte[] 然后,这些字节被使用的一个实现加密ProvenanceEventEncryptor(唯一的当前的实现是AES/GCM/NoPadding)和加密的元数据(keyId,algorithm,version,IV)被串行化和前缀。byte[]然后将complete完成写入磁盘上的存储库。
 
-![](../image/general/encrypted-wapr-hex.png)
+![](./image/general/encrypted-wapr-hex.png)
 
 在记录读取时,该过程是相反的。解密加密元数据并用于解密序列化字节,然后将其反序列化为ProvenanceEventRecord对象。对正常模式记录写入器/读取器的委托允许"随机访问"(即,立即搜索而不解密不必要的记录)。
 
@@ -1832,7 +1832,7 @@ KEY5 = c6FzfnKm7UR7xqI2NFpZ + fEKBfSU7 + 1NvRw + XWQ9U39MONWqk5gvoyOCdFR1kUgeg46
 
 #### 潜在问题
 
-![](../image/general/i.png)切换实现
+![](./image/general/i.png)切换实现
 当执行"家族"之间(即切换VolatileProvenanceRepository或PersistentProvenanceRepository到EncryptedWriteAheadProvenanceRepository),现有的存储库,必须从文件系统启动之前NiFi清除。终端命令localhost:$NIFI_HOME $ rm -rf provenance_repository/就足够了。
 
 * 在未加密和加密的存储库之间切换

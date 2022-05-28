@@ -21,7 +21,7 @@ NiFi使用了三个存储库。每个文件都存在于`OS/Host`的文件系统�
 
 - `Provenance Repository`保存FlowFiles的历史记录。
 
-![](../image/developer/1.png)
+![](./image/developer/1.png)
 
 ### FlowFile Repository
 

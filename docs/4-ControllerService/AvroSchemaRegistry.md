@@ -30,8 +30,3 @@
 
 内部实现就是一个ConcurrentHashMap，把schema存起来，根据key把schema取出来。
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

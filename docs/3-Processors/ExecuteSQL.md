@@ -28,27 +28,27 @@
 
 ## 示例说明
 
-1：Avro Logical Types ，没有接触过的人可能会一头雾水。简单来说，数据库有自己的数据类型，avro格式数据也有自己的数据类型，两方的数据类型有些是能直接映射的，有些是需要转换的，文档中所说的DECIMAL/NUMBER, DATE, TIME 和TIMESTAMP这些来源数据的类型在avro中就无法直接映射类型；这里提供了两种解决方法，第一种是上述类型统一转成字符串类型，具体值不变；另一种是转换成avro Logical Types，但数据值会变动转换。按我使用一般这个属性设置为false，十进制/数字、日期、时间和时间戳列就写成字符串。最大的好处就是值不变（如下）![](../image/processors/ExecuteSQL/1.png)
+1：Avro Logical Types ，没有接触过的人可能会一头雾水。简单来说，数据库有自己的数据类型，avro格式数据也有自己的数据类型，两方的数据类型有些是能直接映射的，有些是需要转换的，文档中所说的DECIMAL/NUMBER, DATE, TIME 和TIMESTAMP这些来源数据的类型在avro中就无法直接映射类型；这里提供了两种解决方法，第一种是上述类型统一转成字符串类型，具体值不变；另一种是转换成avro Logical Types，但数据值会变动转换。按我使用一般这个属性设置为false，十进制/数字、日期、时间和时间戳列就写成字符串。最大的好处就是值不变（如下）![](./image/processors/ExecuteSQL/1.png)
 
-然后可以使用ConvertJsonToSql（从目标表获取元数据信息）或者写临时表，外部表等等,最后也会有很多方法成功写入到目标库。![](../image/processors/ExecuteSQL/2.png)
+然后可以使用ConvertJsonToSql（从目标表获取元数据信息）或者写临时表，外部表等等,最后也会有很多方法成功写入到目标库。![](./image/processors/ExecuteSQL/2.png)
 
 2：SQL select query
 
 首先设计如图一个流程：
 
-![](../image/processors/ExecuteSQL/3.png)
+![](./image/processors/ExecuteSQL/3.png)
 
 流中是一个SQL语句  limit 1
 
-![](../image/processors/ExecuteSQL/4.png)
+![](./image/processors/ExecuteSQL/4.png)
 
 SQL select query 属性设成 limit 2
 
-![](../image/processors/ExecuteSQL/5.png)
+![](./image/processors/ExecuteSQL/5.png)
 
 结果发现，当SQL select query配置后，将忽略流中传过来的SQL
 
-![](../image/processors/ExecuteSQL/6.png)
+![](./image/processors/ExecuteSQL/6.png)
 
 3：
 
@@ -60,44 +60,39 @@ Max Rows Per Flow File   Output Batch Size
 
 3.1 首先查一百条数据，Max Rows Per Flow File 设为10
 
-![](../image/processors/ExecuteSQL/7.png)
+![](./image/processors/ExecuteSQL/7.png)
 
 结果是输出10个流文件，每个流文件10条数据
 
-![](../image/processors/ExecuteSQL/8.png)
+![](./image/processors/ExecuteSQL/8.png)
 
-![](../image/processors/ExecuteSQL/9.png)
+![](./image/processors/ExecuteSQL/9.png)
 
 3.2
 
-![](../image/processors/ExecuteSQL/10.png)
+![](./image/processors/ExecuteSQL/10.png)
 
-![](../image/processors/ExecuteSQL/11.png)
+![](./image/processors/ExecuteSQL/11.png)
 
-![](../image/processors/ExecuteSQL/12.png)
+![](./image/processors/ExecuteSQL/12.png)
 
 结果感觉跟没设置一样，及时设成成 limit 一百万 一个亿，也是输出一个流文件；当然了，这会儿一般大家都会骂娘“这NIFI太坑了！都没用！垃圾。。。”
 
 别急，看下代码就明白什么意思了（如下图）看注释已经此处的代码逻辑，当流文件数达到了outputBatchSize的时候，这批流文件会被输出到sucess
 
-![](../image/processors/ExecuteSQL/13.png)
+![](./image/processors/ExecuteSQL/13.png)
 
 比如配置如下，会发现流文件输出不再是一个一个的输出，而是2个为单位的输出：
 
-![](../image/processors/ExecuteSQL/14.png)
+![](./image/processors/ExecuteSQL/14.png)
 
 不信你可以试试，output Batch size设成偶数，流增长都是偶数
 
-![](../image/processors/ExecuteSQL/15.png)
+![](./image/processors/ExecuteSQL/15.png)
 
 同理，设为奇数，就会发现是按奇数增长的
 
-![](../image/processors/ExecuteSQL/16.png)
+![](./image/processors/ExecuteSQL/16.png)
 
-![](../image/processors/ExecuteSQL/17.png)
+![](./image/processors/ExecuteSQL/17.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

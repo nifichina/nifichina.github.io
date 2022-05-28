@@ -57,11 +57,11 @@ failure | 任何没有被成功编码或解码的流文件都将被路由到此�
 
 1：编码   内容为  1111
 
-![](../image/processors/Base64EncodeContent/1.png)
+![](./image/processors/Base64EncodeContent/1.png)
 
 结果为
 
-![](../image/processors/Base64EncodeContent/2.png)
+![](./image/processors/Base64EncodeContent/2.png)
 
 2：解码   内容为  
 
@@ -69,10 +69,5 @@ MTExMQ==
 
 结果为：
 
-![](../image/processors/Base64EncodeContent/3.png)
+![](./image/processors/Base64EncodeContent/3.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

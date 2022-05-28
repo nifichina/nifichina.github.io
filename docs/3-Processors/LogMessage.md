@@ -54,15 +54,10 @@ Log message   |      |                                       | 要发出的日�
 
 1:使用此处理器在日志中打印出流中的某个属性
 
-![](../image/processors/LogMessage/config.png)
-![](../image/processors/LogMessage/config2.png)
+![](./image/processors/LogMessage/config.png)
+![](./image/processors/LogMessage/config2.png)
 
 输出结果
 
-![](../image/processors/LogMessage/result.png)
+![](./image/processors/LogMessage/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

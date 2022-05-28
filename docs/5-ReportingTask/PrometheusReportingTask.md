@@ -41,18 +41,13 @@
 
 配置示例：
 
-![](../image/reportingtask/PrometheusReportingTask/1.png)
+![](./image/reportingtask/PrometheusReportingTask/1.png)
 
 直接Get 9092/metrics/
-![](../image/reportingtask/PrometheusReportingTask/2.png)
+![](./image/reportingtask/PrometheusReportingTask/2.png)
 
 在普罗米修斯中查看
-![](../image/reportingtask/PrometheusReportingTask/3.png)
+![](./image/reportingtask/PrometheusReportingTask/3.png)
 
-![](../image/reportingtask/PrometheusReportingTask/4.png)
+![](./image/reportingtask/PrometheusReportingTask/4.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

@@ -4,4 +4,4 @@
 
 QQ群: 210445398
 
-![](../image/general/NIFIQQ.png)
+![](./NIFIQQ.png)

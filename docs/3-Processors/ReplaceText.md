@@ -64,24 +64,19 @@ MEMORY   | 此组件的实例可能会导致系统资源的大量使用。多个
 
 (?s)(^.*$)匹配所有值，选择正则匹配替换，全文本替换
 
-![](../image/processors/ReplaceText/config.png)
+![](./image/processors/ReplaceText/config.png)
 
 流文件原内容：
 
-![](../image/processors/ReplaceText/input.png)
+![](./image/processors/ReplaceText/input.png)
 
 替换后内容：
 
-![](../image/processors/ReplaceText/result.png)
+![](./image/processors/ReplaceText/result.png)
 
 2：逐行替换：
 
-![](../image/processors/ReplaceText/config2.png)
+![](./image/processors/ReplaceText/config2.png)
 
-![](../image/processors/ReplaceText/result2.png)
+![](./image/processors/ReplaceText/result2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

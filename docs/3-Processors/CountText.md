@@ -64,8 +64,3 @@ text.character.count     | 原始FlowFile中存在的字符数（指定的字符
 ## 示例说明
 
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

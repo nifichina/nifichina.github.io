@@ -78,18 +78,13 @@ ${lastest.pkName:isEmpty():or(${lastest.pkValue:isEmpty()}):or(${lastest.tsValue
 //意思是四个流文件属性如果有一个为空，则返回true
 ```
 
-![](../image/processors/RouteOnAttribute/config.png)
+![](./image/processors/RouteOnAttribute/config.png)
 
 输入流属性如下，要求非空的属性中有空值：
 
-![](../image/processors/RouteOnAttribute/input.png)
+![](./image/processors/RouteOnAttribute/input.png)
 
 结果如下：路由到paramError关系
 
-![](../image/processors/RouteOnAttribute/result.png)
+![](./image/processors/RouteOnAttribute/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

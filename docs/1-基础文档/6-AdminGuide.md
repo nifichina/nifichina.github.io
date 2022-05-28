@@ -60,9 +60,9 @@ NiFi具有以下最低系统要求:
 >For security purposes, when no security configuration is provided NiFi will now bind to 127.0.0.1 by default and the UI will only be accessible through this loopback interface. HTTPS properties should be configured to access NiFi from other interfaces. See the Security Configuration for guidance on how to do this.
 
 >Panda诚解读：上方官方文档有误，故拷贝原文而不翻译，此处予以纠正。参照`NIFI-8516 Enabled HTTPS and Single User Authentication in default configuration`，现在的NiFi默认自动生成了证书以HTTPS模式启动，并使用`single user`的用户登陆和权限验证机制，默认绑定到127.0.0.1:8443，你只能从这个地址(https://127.0.0.1:8443)去访问，一般上局域网内你将`nifi.web.https.host`这个值置空(或者使用`0.0.0.0`)就可以通过服务器或虚机的IP地址来访问了，个别的使用云环境或者使用了容器技术的无法访问NiFi的，就得考虑配置`nifi.web.proxy.host`才能进一步通过具体的IP:Port来访问NiFi的界面。比如我测试起了一个docker镜像运行NiFi，如果我没有像如图配置proxy
->![](../image/general/https_proxy.png)
+>![](./image/general/https_proxy.png)
 >就会报类似如下的错误
->![](../image/general/https_proxy_error.png)
+>![](./image/general/https_proxy_error.png)
 
 有关配置NiFi存储库和配置文件的更多信息，请参阅本指南的[系统属性(System Properties)](#系统属性(System%20Properties))部分。
 
@@ -437,7 +437,7 @@ NiFi使用生成的RSA密钥对，密钥大小为4096位，支持JSON Web签名�
 | Property Name | Description
 |`nifi.security.user.jws.key.rotation.period` | JSON Web签名密钥旋转周期定义了系统多长时间生成一个新的RSA密钥对，表示为`ISO 8601`持续时间。默认值为1小时:' PT1H '
 
->Panda诚解读：关于更多关于NIFI`JSON Web token`的解读，访问公众号`NIFI系列文章`中查阅文章，![](../image/general/nifi_jwt.png)，篇幅很长这里就不展开了。
+>Panda诚解读：关于更多关于NIFI`JSON Web token`的解读，访问公众号`NIFI系列文章`中查阅文章，![](./image/general/nifi_jwt.png)，篇幅很长这里就不展开了。
 
 ## 多租户授权(Multi-Tenant Authorization)
 
@@ -1117,15 +1117,15 @@ cn=NiFi-2，ou=people，dc=example，dc=com
 
 在UI中，从全局菜单中选择`Users`。这将打开一个用于创建和管理用户和租户的对话框。
 
-![](../image/general/NiFi-users-dialog.png)
+![](./image/general/NiFi-users-dialog.png)
 
 单击`Add`图标(![添加用户图标](https://nifichina.gitee.io/image/general/iconAddUser.png))。要创建用户，请输入与为保护你的NiFi实例而选择的身份验证方法相关的`Identity`信息。单击确定。
 
-![](../image/general/user-creation-dialog.png)
+![](./image/general/user-creation-dialog.png)
 
 要创建租户，请选择"Group"单选按钮，输入组的名称，然后选择要包括在组中的用户。单击确定。
 
-![](../image/general/group-creation-dialog.png)
+![](./image/general/group-creation-dialog.png)
 
 #### 访问策略(Access Policies)
 
@@ -1173,9 +1173,9 @@ cn=NiFi-2，ou=people，dc=example，dc=com
 |receive data via site-to-site|允许端口从NiFi实例接收数据|`resource="/data-transfer/input-ports/<port-UUID>" action="W"`
 |send data via site-to-site|允许端口从NiFi实例发送数据|`resource="/data-transfer/output-ports/<port-UUID>" action="W"`
 
-![](../image/general/i.png)你可以将访问策略应用于除连接之外的所有组件类型。连接授权由连接的源和目标组件上的各个访问策略以及包含组件的进程组的访问策略推断。在下面的[创建连接](#创建连接)和[编辑连接](#编辑连接)示例中将对此进行更详细的讨论。
+![](./image/general/i.png)你可以将访问策略应用于除连接之外的所有组件类型。连接授权由连接的源和目标组件上的各个访问策略以及包含组件的进程组的访问策略推断。在下面的[创建连接](#创建连接)和[编辑连接](#编辑连接)示例中将对此进行更详细的讨论。
 
-![](../image/general/i.png)为了访问连接的列表队列或删除队列，用户需要在组件上"view the data"和"modify the data"策略的权限。在集群环境中，所有节点也必须添加到这些策略中，因为可以通过集群中的任何节点复制用户请求。
+![](./image/general/i.png)为了访问连接的列表队列或删除队列，用户需要在组件上"view the data"和"modify the data"策略的权限。在集群环境中，所有节点也必须添加到这些策略中，因为可以通过集群中的任何节点复制用户请求。
 
 ##### 访问策略继承
 
@@ -1183,19 +1183,19 @@ cn=NiFi-2，ou=people，dc=example，dc=com
 
 你可以覆盖继承的策略(如下面的[移动处理器](#移动处理器)示例中所述)。覆盖策略会删除继承的策略，从父项到子项断开继承链，并创建替换策略以根据需要添加用户。可以通过删除替换策略来恢复继承的策略及其用户。
 
-![](../image/general/i.png)"View the policies"和"modify the policies"组件级访问策略是此继承行为的一个例外。将用户添加到任一策略后，它们将添加到当前管理员列表中。他们不会覆盖更高级别的管理员。因此，仅显示特定于组件的管理员以查看"View the policies"和"modify the policies"访问策略。
+![](./image/general/i.png)"View the policies"和"modify the policies"组件级访问策略是此继承行为的一个例外。将用户添加到任一策略后，它们将添加到当前管理员列表中。他们不会覆盖更高级别的管理员。因此，仅显示特定于组件的管理员以查看"View the policies"和"modify the policies"访问策略。
 
-![](../image/general/i.png)你无法修改继承策略上的users/groups。只能在父策略或覆盖策略中添加或删除用户和租户。
+![](./image/general/i.png)你无法修改继承策略上的users/groups。只能在父策略或覆盖策略中添加或删除用户和租户。
 
 #### 查看用户策略
 
 在UI中，从全局菜单中选择"Users"。这将打开NiFi用户对话框。
 
-![](../image/general/user-policies.png)
+![](./image/general/user-policies.png)
 
 选择"View User Policies"图标(![用户政策图标](https://nifichina.gitee.io/image/general/iconUserPolicies.png))。
 
-![](../image/general/user-policies-detail.png)
+![](./image/general/user-policies-detail.png)
 
 用户策略窗口显示已为所选用户设置的全局和组件级策略。选择"Go To"图标(![转到图标](https://nifichina.gitee.io/image/general/iconGoTo.png)以导航到画布中的该组件。
 
@@ -1205,17 +1205,17 @@ cn=NiFi-2，ou=people，dc=example，dc=com
 
 让我们从画布上的两个处理器开始作为我们的起点:GenerateFlowFile和LogAttribute。
 
-![](../image/general/access-policy-config-start.png)
+![](./image/general/access-policy-config-start.png)
 
 User1可以向数据流添加组件，并能够移动，编辑和连接所有处理器。User1可以看到根进程组和处理器的详细信息和属性。
 
-![](../image/general/user1-full-access.png)
+![](./image/general/user1-full-access.png)
 
 User1希望保持其对数据流及其组件的当前权限。
 
 User2无法将组件添加到数据流或移动，编辑或连接组件。User2将隐藏根进程组和处理器的详细信息和属性。
 
-![](../image/general/user2-restricted-access.png)
+![](./image/general/user2-restricted-access.png)
 
 ##### 移动处理器
 
@@ -1227,17 +1227,17 @@ User2无法将组件添加到数据流或移动，编辑或连接组件。User2�
 
 3.  从策略下拉列表中选择修改组件。处理器(子)上当前存在的修改组件策略是从User1具有权限的根进程组(父)继承的修改组件策略。
 
-    ![](../image/general/processor-modify-policy.png)
+    ![](./image/general/processor-modify-policy.png)
 
 4.  在策略继承消息中选择"覆盖"链接。创建替换策略时，你可以选择使用继承策略的副本或空策略覆盖。选择"覆盖"按钮以创建副本。
 
-    ![](../image/general/override_policy_copy_empty.png)
+    ![](./image/general/override_policy_copy_empty.png)
 
 5.  在创建的替换策略上，选择添加用户图标(![添加用户图标](https://nifichina.gitee.io/image/general/iconAddUser.png))。在用户标识字段中查找或输入User2，然后选择确定。通过这些更改，User1可以在画布上移动两个处理器。User2现在可以移动GenerateFlowFile处理器，但无法移动LogAttribute处理器。
 
-    ![](../image/general/processor-replacement-modify-policy.png)
+    ![](./image/general/processor-replacement-modify-policy.png)
 
-    ![](../image/general/user2-moved-processor.png)
+    ![](./image/general/user2-moved-processor.png)
 
 ##### 编辑处理器
 
@@ -1249,25 +1249,25 @@ User2无法将组件添加到数据流或移动，编辑或连接组件。User2�
 
 3.  从策略下拉列表中选择查看组件。组件当前存在于处理器(子)上的策略视图是查看组件策略继承自User1具有权限的根进程组(父组件) 。
 
-    ![](../image/general/processor-view-policy.png))
+    ![](./image/general/processor-view-policy.png))
 
 4.  在策略继承消息中选择覆盖链接，保留复制策略的默认值并选择覆盖按钮。
 
 5.  在创建的覆盖策略上，选择"添加用户"图标(![添加用户图标](https://nifichina.gitee.io/image/general/iconAddUser.png))。在用户标识字段中查找或输入User2，然后选择确定。通过这些更改，User1可以在画布上查看和编辑处理器。User2现在可以查看和编辑GenerateFlowFile处理器。
 
-    ![](../image/general/processor-replacement-view-policy.png)
+    ![](./image/general/processor-replacement-view-policy.png)
 
-    ![](../image/general/user2-edit-processor.png)
+    ![](./image/general/user2-edit-processor.png)
 
 ##### 创建连接
 
 通过前面两个示例中讨论的配置访问策略，User1能够将GenerateFlowFile连接到LogAttribute:
 
-![](../image/general/user1-create-connection.png)
+![](./image/general/user1-create-connection.png)
 
 User2无法建立连接::
 
-![](../image/general/user2-no-connection.png)
+![](./image/general/user2-no-connection.png)
 
 这是因为:
 
@@ -1282,35 +1282,35 @@ User2无法建立连接::
 2.  从操作选项板中选择访问策略图标(![访问政策图标](https://nifichina.gitee.io/image/general/iconAccessPolicies.png))，然后打开访问策略对话框。
 
 3.  从策略下拉列表中选择修改组件。 
-   ![](../image/general/process-group-modify-policy.png)
+   ![](./image/general/process-group-modify-policy.png)
 
 4.  选择添加用户图标(![添加用户图标](https://nifichina.gitee.io/image/general/iconAddUser.png))。找到或输入User2并选择确定。
 
-![](../image/general/process-group-modify-policy-add-user2.png)
+![](./image/general/process-group-modify-policy-add-user2.png)
 
 通过将User2添加到进程组上的修改组件策略，User2将通过策略继承添加到LogAttribute处理器上的修改组件策略。要确认这一点，请突出显示LogAttribute处理器，然后从Operate面板中选择Access Policies图标(![访问政策图标](https://nifichina.gitee.io/image/general/iconAccessPolicies.png)):
 
-![](../image/general/processor-inherited-modify-policy.png)
+![](./image/general/processor-inherited-modify-policy.png)
 
 通过这些更改，User2现在可以将GenerateFlowFile处理器连接到LogAttribute处理器。
 
-![](../image/general/user2-can-connect.png)
+![](./image/general/user2-can-connect.png)
 
-![](../image/general/user2-connected-processors.png)
+![](./image/general/user2-connected-processors.png)
 
 ##### 编辑连接
 
 假设User1或User2将ReplaceText处理器添加到根进程组:
 
-![](../image/general/replacetext-processor-added.png)
+![](./image/general/replacetext-processor-added.png)
 
 User1可以选择并更改现有连接(在GenerateFlowFile和LogAttribute之间)，现在将GenerateFlowFile连接到ReplaceText:
 
-![](../image/general/user1-edit-connection.png)
+![](./image/general/user1-edit-connection.png)
 
 用户2无法执行此操作。
 
-![](../image/general/user2-no-edit-connection.png)
+![](./image/general/user2-no-edit-connection.png)
 
 允许User2将GenerateFlowFile连接到ReplaceText，如User1:
 
@@ -1318,15 +1318,15 @@ User1可以选择并更改现有连接(在GenerateFlowFile和LogAttribute之间)
 
 2.  选择访问策略图标(![访问政策图标](https://nifichina.gitee.io/image/general/iconAccessPolicies.png))。
 
-3.  从策略下拉列表中选择查看组件。 ![](../image/general/process-group-view-policy.png)
+3.  从策略下拉列表中选择查看组件。 ![](./image/general/process-group-view-policy.png)
 
 4.  选择添加用户图标(![添加用户图标](https://nifichina.gitee.io/image/general/iconAddUser.png))。找到或输入User2并选择确定。
 
-![](../image/general/process-group-view-policy-add-user2.png)
+![](./image/general/process-group-view-policy-add-user2.png)
 
 要添加到进程组的视图和修改策略，User2现在可以将GenerateFlowFile处理器连接到ReplaceText处理器。
 
-![](../image/general/user2-edit-connection.png)
+![](./image/general/user2-edit-connection.png)
 
 ## 加密配置
 
@@ -1429,23 +1429,23 @@ User1可以选择并更改现有连接(在GenerateFlowFile和LogAttribute之间)
 
 输入的前8或16个字节是salt。盐长度基于所选算法的密码块长度确定。如果无法确定密码块大小(例如使用流密码`RC4`)，则使用默认值8字节。在解密时，盐被读入并与密码组合以导出加密密钥和IV。
 
-![](../image/general/NiFi-legacy-salt.png)
+![](./image/general/NiFi-legacy-salt.png)
 
 #### OpenSSL PKCS＃5 v1.5 EVP_BytesToKey
 
 OpenSSL允许使用salted或unsalted密钥派生。_\*无保留密钥派生是一种安全风险，不建议使用。*_如果存在salt，则输入的前8个字节为ASCII字符串"Salted __"(`0x53 61 6C 74 65 64 5F 5F`)，接下来的8个字节为ASCII编码的salt。在解密时，盐被读入并与密码组合以导出加密密钥和IV。如果没有salt标头，则整个输入被认为是密文。
 
-![](../image/general/openssl-salt.png)
+![](./image/general/openssl-salt.png)
 
 对于新的KDF，每个都允许非确定性IV，IV必须与密文一起存储。这不是一个漏洞，因为IV不需要保密，而只是对于使用相同密钥加密的消息是唯一的，以减少加密攻击的成功。对于这些KDF，输出包括盐，然后是盐分隔符，UTF-8字符串"NiFiSALT"(`0x4E 69 46 69 53 41 4C 54`)然后是IV，接着是IV分隔符，UTF-8字符串"NiFiIV"(`0x4E 69 46 69 49 56`)，然后是密文。
 
 #### Bcrypt，Scrypt，PBKDF2
 
-![](../image/general/bcrypt-salt.png)
+![](./image/general/bcrypt-salt.png)
 
-![](../image/general/scrypt-salt.png)
+![](./image/general/scrypt-salt.png)
 
-![](../image/general/pbkdf2-salt.png)
+![](./image/general/pbkdf2-salt.png)
 
 EncryptContent处理器允许加密和解密数据，这些数据既包含在NiFi内部，也包含在外部系统(如`openssl`其他数据源和消费者)中。
 
@@ -1486,7 +1486,7 @@ PBE是从_用户提供的秘密材料_(通常是密码)导出用于加密或解�
 
 默认情况下，处理器设置中的`Allow Insecure Cryptographic Modes`属性`EncryptContent`设置为`not-allowed`。这意味着如果提供的密码少于`10`字符，则会发生验证错误。10个字符是保守估计，不考虑完整熵计算，模式等。
 
-![](../image/general/allow-weak-crypto.png)
+![](./image/general/allow-weak-crypto.png)
 
 在具有有限强度加密的JVM上，一些PBE算法将最大密码长度限制为7，在这种情况下，将无法提供"安全"密码。建议为JVM安装JCE Unlimited Strength Jurisdiction Policy文件以缓解此问题。
 
@@ -1494,7 +1494,7 @@ PBE是从_用户提供的秘密材料_(通常是密码)导出用于加密或解�
 
 如果在无法安装无限强度策略的系统上，建议切换到支持更长密码的算法(参见上表)。
 
-![](../image/general/iii.png) _允许弱加密_
+![](./image/general/iii.png) _允许弱加密_
 如果它是不可能安装无限强度管辖的政策，该`Allow Weak Crypto`设置可以改变`allowed`，但是**这是_不_推荐的**。更改此设置明确承认使用弱加密配置的固有风险。
 
 最好是请求上游/下游系统切换到[密钥加密](https://cwiki.apache.org/confluence/display/NiFi/Encryption+Information)或使用[NiFi支持](https://cwiki.apache.org/confluence/display/NiFi/Key+Derivation+Function+Explanations)的"强" [密钥导出功能(KDF)](https://cwiki.apache.org/confluence/display/NiFi/Key+Derivation+Function+Explanations)。
@@ -1531,7 +1531,7 @@ PBE是从_用户提供的秘密材料_(通常是密码)导出用于加密或解�
 
 本节简要概述了NiFi集群以及如何设置基本集群的说明。在未来，我们希望提供涵盖NiFi集群架构的补充文档。
 
-![](../image/general/zero-master-cluster-http-access.png)
+![](./image/general/zero-master-cluster-http-access.png)
 
 ### 零主集群
 
@@ -1551,7 +1551,7 @@ NiFi Clustering是独一无二的，有自己的术语。在设置集群之前�
 
 **主节点(****Primary Node****)**：每个集群都有一个主节点。在此节点上，可以运行"隔离处理器"(见下文)。ZooKeeper用于自动选择主节点。如果该节点由于任何原因断开与集群的连接，将自动选择新的主节点。用户可以通过查看用户界面的"集群管理"页面来确定当前选择哪个节点作为主节点。
 
-![](../image/general/primary-node-cluster-mgt.png)
+![](./image/general/primary-node-cluster-mgt.png)
 
 **孤立的处理器**：在NiFi集群中，相同的数据流在所有节点上运行。因此，流中的每个组件都在每个节点上运行。但是，可能存在DFM不希望每个处理器在每个节点上运行的情况。最常见的情况是使用的处理器使用不能很好扩展的协议与外部服务进行通信。例如，GetSFTP处理器从远程目录中提取。如果GetSFTP处理器在集群中的每个节点上运行并同时尝试从同一个远程目录中提取，则可能存在竞争条件。因此，DFM可以将主节点上的GetSFTP配置为独立运行，这意味着它仅在该节点上运行。通过适当的数据流配置，它可以提取数据并在集群中的其余节点之间对其进行负载平衡。请注意，虽然存在此功能，但仅使用独立的NiFi实例来提取数据并将其提供给集群也很常见。它仅取决于可用资源以及管理员决定配置集群的方式。
 
@@ -1571,21 +1571,21 @@ DFM可以手动断开节点与集群的连接。节点也可能由于其他原�
 
 要手动断开节点，请从节点的行中选择"断开连接"图标(![断开图标](https://nifichina.gitee.io/image/general/iconDisconnect.png))。
 
-![](../image/general/disconnected-node-cluster-mgt.png)
+![](./image/general/disconnected-node-cluster-mgt.png)
 
 断开连接的节点可以连接(![连接图标](https://nifichina.gitee.io/image/general/iconConnect.png))，卸载(![卸载图标](https://nifichina.gitee.io/image/general/iconOffload.png))或删除(![删除图标](https://nifichina.gitee.io/image/general/iconDelete.png))。
 
-![](../image/general/i.png)并非所有处于"已断开连接"状态的节点都可以卸载。如果节点断开连接且无法访问，则节点无法接收卸载请求以启动卸载。此外，由于防火墙规则，可能会中断或阻止卸载。
+![](./image/general/i.png)并非所有处于"已断开连接"状态的节点都可以卸载。如果节点断开连接且无法访问，则节点无法接收卸载请求以启动卸载。此外，由于防火墙规则，可能会中断或阻止卸载。
 
 #### 卸载节点
 
 保留在断开连接的节点上的流文件可以通过卸载重新平衡到集群中的其他活动节点。在Cluster Management对话框中，为Disconnected节点选择"Offload"图标(![卸载图标](https://nifichina.gitee.io/image/general/iconOffload.png))。这将停止所有处理器，终止所有处理器，停止在所有远程进程组上传输，并将流文件重新平衡到集群中的其他连接节点。
 
-![](../image/general/offloading-node-cluster-mgt.png)
+![](./image/general/offloading-node-cluster-mgt.png)
 
 由于遇到错误(内存不足，没有网络连接等)而保持"卸载"状态的节点可以通过重新启动节点上的NiFi重新连接到集群。卸载的节点可以重新连接到集群(通过选择连接或重新启动节点上的NiFi)或从集群中删除。
 
-![](../image/general/offloaded-node-cluster-mgt.png)
+![](./image/general/offloaded-node-cluster-mgt.png)
 
 #### 删除节点
 
@@ -1661,7 +1661,7 @@ NiFi CLI节点命令
 
 现在，可以启动集群。实例启动的顺序无关紧要。导航到其中一个节点的URL，用户界面应类似于以下内容:
 
-![](../image/general/ncm.png)
+![](./image/general/ncm.png)
 
 ### 故障排除
 
@@ -1789,7 +1789,7 @@ Server {  com.sun.security.auth.module.Krb5LoginModule required  useKeyTab=true 
 java.arg.15=-Djava.security.auth.login.config=./conf/zookeeper-jaas.conf
 ```
 
-![](../image/general/i.png)文件中的这一附加行不必是15号，只需将其添加到_bootstrap.conf_文件中即可。使用适合你的配置的任何数字。
+![](./image/general/i.png)文件中的这一附加行不必是15号，只需将其添加到_bootstrap.conf_文件中即可。使用适合你的配置的任何数字。
 
 我们希望通过运行以下命令来初始化我们的Kerberos票证:
 
@@ -1813,7 +1813,7 @@ authProvider.1=org.apache.zookeeper.server.auth.SASLAuthenticationProviderkerber
 
 Kerberizing NiFi的ZooKeeper客户端
 
-![](../image/general/i.png)运行嵌入式zookeeper服务器的NiFi节点也需要遵循以下过程，因为它们也将同时充当客户端。
+![](./image/general/i.png)运行嵌入式zookeeper服务器的NiFi节点也需要遵循以下过程，因为它们也将同时充当客户端。
 
 使用ZooKeeper验证用户的首选机制是使用Kerberos。为了使用Kerberos进行身份验证，我们必须配置一些系统属性，以便ZooKeeper客户端知道用户是谁以及KeyTab文件所在的位置。配置为使用`ZooKeeperStateProvider`和使用Kerberos 存储集群范围状态的所有节点都应遵循以下步骤。
 
@@ -1853,7 +1853,7 @@ java.arg.15=-Djava.security.auth.login.config=./conf/zookeeper-jaas.conf
 nifi.zookeeper.auth.type=saslnifi.zookeeper.kerberos.removeHostFromPrincipal=truenifi.zookeeper.kerberos.removeRealmFromPrincipal=true
 ```
 
-![](../image/general/i.png)该`kerberos.removeHostFromPrincipal`和`kerberos.removeRealmFromPrincipal`应与什么是在动物园管理员的配置设置是一致的。
+![](./image/general/i.png)该`kerberos.removeHostFromPrincipal`和`kerberos.removeRealmFromPrincipal`应与什么是在动物园管理员的配置设置是一致的。
 
 我们可以通过运行以下命令来初始化我们的Kerberos票证:
 
@@ -2145,7 +2145,7 @@ root@kdc:~#
 
 `conf`目录中的 _nifi.properties_ 文件是用于控制NiFi运行方式的主要配置文件。本节概述了此文件中的属性，并包含有关如何以便于升级的方式对其进行配置的一些注意事项。**更改此文件后，重新启动NiFi以使更改生效。**
               
-![](../image/general/i.png)此文件的内容相对稳定，但会不时更改。升级时查看此文件始终是个好主意，并注意任何更改。考虑使用星号(*)配置下面的项目，以便更容易升级。有关详细信息，请参阅本节末尾有关升级的完整讨论。请注意，时间段和数据大小的值必须包括度量单位，例如"10 secs"或"10 MB"，而不仅仅是"10"。
+![](./image/general/i.png)此文件的内容相对稳定，但会不时更改。升级时查看此文件始终是个好主意，并注意任何更改。考虑使用星号(*)配置下面的项目，以便更容易升级。有关详细信息，请参阅本节末尾有关升级的完整讨论。请注意，时间段和数据大小的值必须包括度量单位，例如"10 secs"或"10 MB"，而不仅仅是"10"。
 
 ### 核心属性
 
@@ -2698,7 +2698,7 @@ nifi.security.identity.mapping.transform.kerb=NONE
 
 除了映射之外，还可以应用变换。支持的版本是`NONE`(未应用转换)，`LOWER`(标识小写)和`UPPER`(标识大写)。如果未指定，则默认值为`NONE`。
 
-![](../image/general/i.png) 这些映射还应用于"初始管理员标识"，"集群节点标识"以及_authorizers.xml_文件中的所有旧用户以及从LDAP导入的用户(请参阅[Authorizers.xml安装程序](http://nifi.apache.org/docs/NiFi-docs/html/administration-guide.html#authorizers-setup))。
+![](./image/general/i.png) 这些映射还应用于"初始管理员标识"，"集群节点标识"以及_authorizers.xml_文件中的所有旧用户以及从LDAP导入的用户(请参阅[Authorizers.xml安装程序](http://nifi.apache.org/docs/NiFi-docs/html/administration-guide.html#authorizers-setup))。
 
 组名也可以映射。以下示例将接受现有的组名称，但会将其小写。与外部授权人一起使用时，这可能会有所帮助。
 
@@ -2708,7 +2708,7 @@ nifi.security.group.mapping.value.anygroup=$1
 nifi.security.group.mapping.transform.anygroup=LOWER
 ```
 
-![](../image/general/i.png) 这些映射适用于_authorizers.xml中_引用的任何遗留组以及从LDAP导入的组。
+![](./image/general/i.png) 这些映射适用于_authorizers.xml中_引用的任何遗留组以及从LDAP导入的组。
 
 ### 集群公共属性
 
@@ -2791,7 +2791,7 @@ NiFi依赖于Apache ZooKeeper来确定集群中哪个节点应该扮演主节点
 也可以在NiFi UI中配置自定义属性。有关详细信息，请参阅"用户指南"中的[变量窗口](http://nifi.apache.org/docs/NiFi-docs/html/user-guide.html#Variables_Window)部分。
 
 
-![](../image/general/iii.png)_升级_
+![](./image/general/iii.png)_升级_
 
 配置上面标有星号(*)的属性时要小心。要使升级过程更容易，建议将默认配置更改为主根安装目录之外的位置。通过这种方式，这些项目可以通过升级保留在其配置的位置，NiFi可以找到所有存储库和配置文件，并在旧版本停止并启动新版本后立即从中断处继续。此外，管理员可以重复使用此_nifi.properties_文件和任何其他配置文件，而无需在每次升级时重新配置它们。如前所述，检查_nifi.properties中的_任何更改非常重要升级时新版本的文件，并确保它们反映在你使用的_nifi.properties_文件中。
 

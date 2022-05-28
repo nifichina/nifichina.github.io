@@ -68,22 +68,17 @@
 
 1：Output Strategy 设置为DataFile
 
-![](../image/processors/splitavro/DataFile.png)
+![](./image/processors/splitavro/DataFile.png)
 
 结果为：
 
-![](../image/processors/splitavro/result.png)
+![](./image/processors/splitavro/result.png)
 
 2：Output Strategy 设置为Bare Record
 
-![](../image/processors/splitavro/Bare-Record.png)
+![](./image/processors/splitavro/Bare-Record.png)
 
 结果为
 
-![](../image/processors/splitavro/result2.png)
+![](./image/processors/splitavro/result2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

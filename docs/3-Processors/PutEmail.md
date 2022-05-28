@@ -72,18 +72,13 @@ failure | 未成功发送邮件得流文件
 
 1：以QQ SMTP为例，怎么开通QQ邮箱SMTP请自行查询
 
-![](../image/processors/PutEmail/1.png)
+![](./image/processors/PutEmail/1.png)
 
 配置好必须项，需要注意的是，中文信息邮件的Content-type要加上UTF-8
 
-![](../image/processors/PutEmail/2.png)
+![](./image/processors/PutEmail/2.png)
 
 最后成功收到邮件:
 
-![](../image/processors/PutEmail/3.png)
+![](./image/processors/PutEmail/3.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

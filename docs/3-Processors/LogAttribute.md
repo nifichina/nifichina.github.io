@@ -61,14 +61,9 @@ Log prefix                                 |       |                            
 
 1：将某属性输出到日志当中
 
-![](../image/processors/LogAttribute/config.png)
+![](./image/processors/LogAttribute/config.png)
 
 输出结果
 
-![](../image/processors/LogAttribute/result.png)
+![](./image/processors/LogAttribute/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

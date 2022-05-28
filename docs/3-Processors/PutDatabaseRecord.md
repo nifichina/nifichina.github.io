@@ -93,8 +93,3 @@ private static String normalizeColumnName(final String colName, final boolean tr
 将fieldName转大写替换下划线，然后跟指定表的同样转换过后的列元数据信息映射进行匹配，记录下Field的那个索引值，然后组SQL设置参数的时候根据索引值找到record中对应的value就行了。这个功能其实就是帮助我们更好的对Record列和目标表列进行匹配。而SQL中的列名其实用的还是从指定表查询出来的列元数据信息。
 
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

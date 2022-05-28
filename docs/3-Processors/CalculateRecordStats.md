@@ -61,21 +61,21 @@ recordStats.`<User Defined Property Name>`.`<value>`.count | 为用户定义的�
 
 流程图：
 
-![](../image/processors/CalculateRecordStats/1.png)
+![](./image/processors/CalculateRecordStats/1.png)
 
 简单的json数组：
 
-![](../image/processors/CalculateRecordStats/2.png)
+![](./image/processors/CalculateRecordStats/2.png)
 
 Reader设置：
 
-![](../image/processors/CalculateRecordStats/3.png)
+![](./image/processors/CalculateRecordStats/3.png)
 
-![](../image/processors/CalculateRecordStats/4.png)
+![](./image/processors/CalculateRecordStats/4.png)
 
 结果：
 
-![](../image/processors/CalculateRecordStats/5.png)
+![](./image/processors/CalculateRecordStats/5.png)
 
 2:record-stats-limit 属性用于统计用户自定义值，看示例：
 
@@ -143,22 +143,17 @@ Reader设置：
 ```
 自定义 属性 sport。limit设置为2：
 
-![](../image/processors/CalculateRecordStats/6.png)
+![](./image/processors/CalculateRecordStats/6.png)
 
 结果可以发现，额外输出统计了自定义的两个属性
 
-![](../image/processors/CalculateRecordStats/7.png)
+![](./image/processors/CalculateRecordStats/7.png)
 
 limit改为3：
 
-![](../image/processors/CalculateRecordStats/8.png)
+![](./image/processors/CalculateRecordStats/8.png)
 
 结果可以发现，额外输出统计了自定义的三个属性
 
-![](../image/processors/CalculateRecordStats/9.png)
+![](./image/processors/CalculateRecordStats/9.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

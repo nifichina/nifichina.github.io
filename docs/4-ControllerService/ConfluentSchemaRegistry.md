@@ -34,10 +34,6 @@
 
 详细还需到官网了解学习[http://docs.confluent.io/current/schema-registry/docs/serializer-formatter.html](http://docs.confluent.io/current/schema-registry/docs/serializer-formatter.html)
 
-## 公众号
 
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)
 
 

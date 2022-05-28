@@ -98,87 +98,82 @@ GenerateTableFetch使用其属性和指定的数据库连接生成包含SQL语�
 
 首先配置好数据库DBCPConnectionPool：
 
-![](../image/processors/GenerateTableFetch/1.png)
+![](./image/processors/GenerateTableFetch/1.png)
 
 然后配置GenerateTableFetch中的Database Connection Pooling Service：
 
-![](../image/processors/GenerateTableFetch/2.png)
+![](./image/processors/GenerateTableFetch/2.png)
 
 案例一：无输入流文件，来源表含增量字段
 
-![](../image/processors/GenerateTableFetch/3.png)
+![](./image/processors/GenerateTableFetch/3.png)
 
-![](../image/processors/GenerateTableFetch/4.png)
+![](./image/processors/GenerateTableFetch/4.png)
 输出SQL语句：
 
-![](../image/processors/GenerateTableFetch/5.png)
+![](./image/processors/GenerateTableFetch/5.png)
 
 保存状态：
 
-![](../image/processors/GenerateTableFetch/6.png)
+![](./image/processors/GenerateTableFetch/6.png)
 
 案例二：无输入流文件，不含增量字段
 
-![](../image/processors/GenerateTableFetch/21.png)
+![](./image/processors/GenerateTableFetch/21.png)
 
 输出：
 
-![](../image/processors/GenerateTableFetch/22.png)
+![](./image/processors/GenerateTableFetch/22.png)
 
 案例三：无输入流文件，带自增id
 
-![](../image/processors/GenerateTableFetch/31.png)
+![](./image/processors/GenerateTableFetch/31.png)
 
 当然，实际增量抽取时，max-value也设置成id
 
-![](../image/processors/GenerateTableFetch/32.png)
+![](./image/processors/GenerateTableFetch/32.png)
 
-![](../image/processors/GenerateTableFetch/33.png)
+![](./image/processors/GenerateTableFetch/33.png)
 
-![](../image/processors/GenerateTableFetch/34.png)
+![](./image/processors/GenerateTableFetch/34.png)
 
 案例四：有来源流文件，查多表,无增量字段
 
-![](../image/processors/GenerateTableFetch/41.png)
+![](./image/processors/GenerateTableFetch/41.png)
 
 使用GenerateFlowFile配置一个多表表名数组，切割json，然后将表名提取到属性中：
 
-![](../image/processors/GenerateTableFetch/42.png)
+![](./image/processors/GenerateTableFetch/42.png)
 
-![](../image/processors/GenerateTableFetch/43.png)
+![](./image/processors/GenerateTableFetch/43.png)
 
 输出结果：
 
-![](../image/processors/GenerateTableFetch/44.png)
+![](./image/processors/GenerateTableFetch/44.png)
 
-![](../image/processors/GenerateTableFetch/45.png)
+![](./image/processors/GenerateTableFetch/45.png)
 
-![](../image/processors/GenerateTableFetch/46.png)
+![](./image/processors/GenerateTableFetch/46.png)
 
 案例五：有来源流文件，查多表,带增量字段
 
 只将案例四中json修改一下：
 
-![](../image/processors/GenerateTableFetch/51.png)
+![](./image/processors/GenerateTableFetch/51.png)
 
-![](../image/processors/GenerateTableFetch/52.png)
+![](./image/processors/GenerateTableFetch/52.png)
 
-![](../image/processors/GenerateTableFetch/53.png)
+![](./image/processors/GenerateTableFetch/53.png)
 
 输出结果：
 
-![](../image/processors/GenerateTableFetch/54.png)
+![](./image/processors/GenerateTableFetch/54.png)
 
-![](../image/processors/GenerateTableFetch/55.png)
+![](./image/processors/GenerateTableFetch/55.png)
 
-![](../image/processors/GenerateTableFetch/56.png)
+![](./image/processors/GenerateTableFetch/56.png)
 
 状态：
 
-![](../image/processors/GenerateTableFetch/57.png)
+![](./image/processors/GenerateTableFetch/57.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

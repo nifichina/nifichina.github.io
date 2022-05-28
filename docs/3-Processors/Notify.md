@@ -58,8 +58,3 @@ notified | 所有FlowFiles都会写入一个属性“notified”。此属性的�
 
 没有指定。
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

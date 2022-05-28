@@ -64,26 +64,21 @@
 
 1：如图为GenerateFlowFile生成的流文件，AttributesToJSON配置json输出到流属性中，包含核心属性 
 
-![](../image/processors/AttributesToCSV/core.png)
+![](./image/processors/AttributesToCSV/core.png)
 
 配置如下：
 
-![](../image/processors/AttributesToJSON/config.png)
+![](./image/processors/AttributesToJSON/config.png)
 
 结果为：
 
-![](../image/processors/AttributesToJSON/result.png)
+![](./image/processors/AttributesToJSON/result.png)
 
 2：例子1中同样的配置，但json输出到输出流的content中
 
-![](../image/processors/AttributesToJSON/config2.png)
+![](./image/processors/AttributesToJSON/config2.png)
 
 结果为
 
-![](../image/processors/AttributesToJSON/result2.png)
+![](./image/processors/AttributesToJSON/result2.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

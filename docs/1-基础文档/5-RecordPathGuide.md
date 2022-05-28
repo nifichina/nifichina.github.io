@@ -791,9 +791,3 @@ RecordPath                          | Return value
 `/name[isBlank(/details/vehicle)]`  | John Doe            
 `/name[isBlank(/details/phase)]`    | John Doe            
 `/name[isBlank(.)]`                 | `<returns no results>`
-
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

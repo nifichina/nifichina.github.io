@@ -88,7 +88,7 @@ Groovy脚本处理器。脚本负责处理传入的流文件以及任何脚本�
 
 1.使用Groovy脚本组装数据
 
-![](../image/processors/ExecuteGroovyScript/config.png)
+![](./image/processors/ExecuteGroovyScript/config.png)
 
 groovy脚本:这段脚本执行一个SQL 查询MySQL 并将结果写入到输出流属性 
 
@@ -116,10 +116,5 @@ newff.putAttribute("data", output )
 REL_SUCCESS << newff
 ```
 
-![](../image/processors/ExecuteGroovyScript/result.png)
+![](./image/processors/ExecuteGroovyScript/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

@@ -69,8 +69,3 @@ success | 从SQL查询结果集中成功创建的FlowFile。
 没有指定。
 
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

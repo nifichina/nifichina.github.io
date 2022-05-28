@@ -105,20 +105,15 @@ user-defined                      | 如果设置了'Put Response Body In Attribu
 
 1：列举最常见的post请求
 
-![](../image/processors/InvokeHTTP/dataflow.png)
+![](./image/processors/InvokeHTTP/dataflow.png)
 
 将流文件中的属性都作为http头请求发送
 
-![](../image/processors/InvokeHTTP/config.png)
+![](./image/processors/InvokeHTTP/config.png)
 
-![](../image/processors/InvokeHTTP/config2.png)
+![](./image/processors/InvokeHTTP/config2.png)
 
-![](../image/processors/InvokeHTTP/dataflow2.png)
+![](./image/processors/InvokeHTTP/dataflow2.png)
 
-![](../image/processors/InvokeHTTP/result.png)
+![](./image/processors/InvokeHTTP/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)

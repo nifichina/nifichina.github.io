@@ -67,18 +67,13 @@
 
 输入json：
 
-![](../image/processors/ConvertJSONToAvro/json.png)
+![](./image/processors/ConvertJSONToAvro/json.png)
 
 配置：手动配置schema 或者上下文attribute传递schema
 
-![](../image/processors/ConvertJSONToAvro/config.png)
+![](./image/processors/ConvertJSONToAvro/config.png)
 
 结果为：
 
-![](../image/processors/ConvertJSONToAvro/result.png)
+![](./image/processors/ConvertJSONToAvro/result.png)
 
-## 公众号
-
-关注公众号 得到第一手文章/文档更新推送。
-
-![](../image/wechat.jpg)
