@@ -1,4 +1,4 @@
-[首页](./README.md) [赞赏支持](./index/donate.md) [QQ群](./index/qq.md) [微信公众号](./index/wechat.md) [更新日志](./index/updateLog.md) [新手常见问题](./index/newQuestions.md) [参与文档编辑](./index/edit.md)
+[首页](./README.md) [赞赏支持](./index/donate.md) [QQ群](./index/qq.md) [微信公众号](./index/wechat.md) [更新日志](./index/updateLog.md) [新手常见问题](./index/newQuestions.md)
 
 # 首页
 
