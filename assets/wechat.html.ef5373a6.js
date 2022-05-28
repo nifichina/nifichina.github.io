@@ -1,0 +1,1 @@
+const e={key:"v-03145446",path:"/index/wechat.html",title:"",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u516C\u4F17\u53F7",slug:"\u516C\u4F17\u53F7",children:[]}],git:{updatedTime:1653748449e3,contributors:[{name:"zhangcheng",email:"zhangchengk@foxmail.com",commits:2}]},filePathRelative:"index/wechat.md"};export{e as data};
