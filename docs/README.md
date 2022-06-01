@@ -15,7 +15,7 @@ Github地址: [https://nifichina.github.io](https://nifichina.github.io))
 NIFI中文文档贡献人员列表:
 
 - `酷酷的诚` 邮箱:`zhangchengk@foxmail.com`
-- `lezww` 
+- `lezww` GitHub: `https://github.com/le-zw`
 
 官方文档实在太多，更新速度也比较快，还是希望有兴趣有精力的同学一起参与进来。文档可以直接在[https://github.com/nifichina/nifichina.github.io](https://github.com/nifichina/nifichina.github.io)的项目增加和修改文档并提供PR请求，文档合并进来后会自动部署更新。
 
