@@ -24,7 +24,3 @@ NIFI中文文档贡献人员列表:
 个人公众号
 
 ![](./index/wechat.jpg)
-博客
-
-- [CSDN](https://blog.csdn.net/weixin_36048246)
-- [阿诚的博客](https://zhangchengk.gitee.io)
